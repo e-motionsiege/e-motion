@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% set row = 0 %}
+<section>
+<div class="example-wrapper">
+    <div class="container">
+<div class="row">
+    <h1 style="text-align: center"></h1>
+</div>
+    <div class="row">
+
+    </div>
+        {#{% for category2 in categories %}
+        <div class="row">
+            {% if category2.videos is null %}
+                {% else %}
+                    <h2 style="text-align: center">#{{ category2.name }}</h2>
+            {% endif %}
+                {% for video in videos %}
+                    {% if category2 in video.category %}
+
+                <div class="col-md-3">
+                    <a href="{{ path('video_profile', {'byId':video.id}) }}" style="color: #333; font-weight: bold;"> <h4>{{ video.title }}</h4></a>
+                    <iframe src="{{ video.urlEmbed }}" width="100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p style="color: #C82829 !important;">{% for category4 in video.category %} <a href="{{ path('category_profile', {'byId':category4.id}) }}" style="color: #C82829 !important;">#{{ category4.name }}</a> {% endfor %}</p>
+                    <p style="    word-break: break-all;">{{ video.description }}</p>
+                    <p>Created by <a href="{{ path('home_user_profile', {'byId':video.user.id}) }}" style="color: #333; font-weight: bold;">{{ video.user.firstname }} {{ video.user.lastname }} </a></p>
+                     <a href="{{ path('article_profile', {'byName':article.name}) }}">Link</a>
+                    <a href="{{ path('article_remove', {'id': article.id}) }} ">Delete</a>
+
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {% endfor %}#}
+        </div>
+</div></section>
+{% endblock %}

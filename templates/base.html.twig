@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Youtube Manager{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        {% endblock %}
+    </head>
+    {% block nav %} <nav class="navbar-default navbar-fixed-top">
+        <div class="container">
+
+        <a class="navbar-brand" href="{{ path('home') }}">Youtube Manager</a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav nav-tabs">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% if is_granted('ROLE_USER') %}
+
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('profile') }}">Edit Profile</a>#}
+{#                    </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('video') }}">Create a video</a>#}
+{#                    </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('user_list') }}">My videos</a>#}
+{#                        </li>#}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('logout') }}">Logout</a>#}
+{#                    </li>#}
+
+                        {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('video') }}">Create a video</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('create_category') }}">Create a category</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_users') }}">All users</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_category') }}">All categories</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_videos') }}">All videos</a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('logout') }}">Logout</a>#}
+{#                        </li>#}
+                    {% endif %}
+                {% else %}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="{{ path('register') }}">Register</a>#}
+{#                </li>#}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('login') }}">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        </div>
+        </nav>{% endblock %}
+    <body>
+    {% block message %}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div style="margin-top: 3%;" class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+        {% block body %}
+            {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
