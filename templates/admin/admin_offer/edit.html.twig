@@ -1,0 +1,56 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Editer Offre{% endblock %}
+
+{% block content %}
+{#    {% if error %}#}
+{#        <div class="alert alert-danger">#}
+{#            {{ error }}#}
+{#        </div>#}
+{#    {% endif %}#}
+    <section class="adminAddVehicle">
+        <h1 style="text-align: center">Editer une offre</h1>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.km) }}
+            {{ form_errors(form.km) }}
+            {{ form_widget(form.km, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.km) }}
+        </div>
+        <div>
+            {{ form_label(form.duration) }}
+            {{ form_errors(form.duration) }}
+            {{ form_widget(form.duration, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.duration) }}
+        </div>
+        <div>
+            {{ form_label(form.amountKm) }}
+            {{ form_errors(form.amountKm) }}
+            {{ form_widget(form.amountKm, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.amountKm) }}
+        </div>
+        <div>
+            {{ form_label(form.amountDuration) }}
+            {{ form_errors(form.amountDuration) }}
+            {{ form_widget(form.amountDuration, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.amountDuration) }}
+        </div>
+        <div>
+            {{ form_label(form.isActive) }}
+            {{ form_errors(form.isActive) }}
+            {{ form_widget(form.isActive, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.isActive) }}
+        </div>
+        <div>
+            {{ form_label(form.type) }}
+            {{ form_errors(form.type) }}
+            {{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.type) }}
+        </div>
+        <div>
+            {{ form_widget(form.submit) }}
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

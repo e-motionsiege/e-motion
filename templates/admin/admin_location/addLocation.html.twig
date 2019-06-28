@@ -1,0 +1,50 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Add Location{% endblock %}
+
+{% block content %}
+{#    {% if error %}#}
+{#        <div class="alert alert-danger">#}
+{#            {{ error }}#}
+{#        </div>#}
+{#    {% endif %}#}
+    <section class="adminAddVehicle">
+        <h1 style="text-align: center">Créer une location</h1>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.startAt) }}
+            {{ form_errors(form.startAt) }}
+            {{ form_widget(form.startAt, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.startAt) }}
+        </div>
+        <div>
+            {{ form_label(form.endAt) }}
+            {{ form_errors(form.endAt) }}
+            {{ form_widget(form.endAt, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.endAt) }}
+        </div>
+        <div>
+            {{ form_label(form.user) }}
+            {{ form_errors(form.user) }}
+            {{ form_widget(form.user, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.user) }}
+        </div>
+        <div>
+            {{ form_label(form.vehicle) }}
+            {{ form_errors(form.vehicle) }}
+            {{ form_widget(form.vehicle, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.vehicle) }}
+        </div>
+        <div>
+            {{ form_label(form.offer) }}
+            {{ form_errors(form.offer) }}
+            {{ form_widget(form.offer, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.offer) }}
+        </div>
+        <div>
+            {{ form_widget(form.submit) }}
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

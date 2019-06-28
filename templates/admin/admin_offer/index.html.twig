@@ -1,0 +1,56 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Liste véhicules{% endblock %}
+
+{% block content %}
+{#    {% if error %}#}
+{#        <div class="alert alert-danger">#}
+{#            {{ error }}#}
+{#        </div>#}
+{#    {% endif %}#}
+<section class="adminAddVehicle">
+    <h1 style="text-align: center">Liste des offres</h1>
+    <div class="row" style="margin-top: 30px;">
+        <div class="scrollTable">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Km maximum</th>
+                    <th scope="col">Durée maximum (Jours)</th>
+                    <th scope="col">Montant par km</th>
+                    <th scope="col">Montant par jours</th>
+                    <th scope="col">Actif</th>
+                    <th scope="col">Type de véhicule</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if allOffers %}
+            {% for allOffer in allOffers %}
+                <tr>
+                    <td>{{ allOffer.id }}</td>
+                    <td>{{ allOffer.km }}</td>
+                    <td>{{ allOffer.duration }}</td>
+                    <td>{{ allOffer.amountKm }}€</td>
+                    <td>{{ allOffer.amountDuration }}€</td>
+                    {% if allOffer.isActive == true %}
+                        <td>Oui</td>
+                    {% else %}
+                        <td>Non</td>
+                    {% endif %}
+                    <td>{{ allOffer.type }}</td>
+                    <td><a href="{{ path('admin_offer_status',{'id': allOffer.id}) }}"> <button type="button" class="btn btn-primary">{% if allOffer.isActive == true %}Désactiver{% else %}Activer{% endif %}</button></a>
+                        <a href="{{ path('admin_offer_edit',{'id': allOffer.id}) }}"><button type="button" class="btn btn-warning">Modifier</button></a>
+                        <a href="{{ path('admin_offer_delete',{'id': allOffer.id}) }}"><button type="button" class="btn btn-danger">Supprimer</button></a>
+
+                    </td>
+                </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

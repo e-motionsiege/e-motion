@@ -1,0 +1,73 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Liste locations{% endblock %}
+
+{% block content %}
+    {#    {% if error %}#}
+    {#        <div class="alert alert-danger">#}
+    {#            {{ error }}#}
+    {#        </div>#}
+    {#    {% endif %}#}
+    <section class="adminAddVehicle">
+        <h1 style="text-align: center">Liste des locations</h1>
+        <div class="row" style="margin-top: 30px;">
+            <div class="scrollTable">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Utilisateur</th>
+                        <th scope="col">Véhicule</th>
+                        <th scope="col">Offre</th>
+                        <th scope="col">Début</th>
+                        <th scope="col">Fin prévue</th>
+                        <th scope="col">Retour du véhicule</th>
+                        <th scope="col">Nombre de kilomètres effectués</th>
+                        <th scope="col">Location annulée</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if locations %}
+                        {% for location in locations %}
+                            <tr>
+                                <td>{{ location.id }}</td>
+                                <td><a href="{{ path('admin_user_edit',{'id': location.user.id}) }}">{{ location.user.id }}</a></td>
+                                <td><a href="{{ path('admin_vehicle_edit',{'id': location.vehicle.id}) }}">{{ location.vehicle.id }}</a></td>
+                                <td><a href="{{ path('admin_offer_edit',{'id': location.offer.id}) }}">{{ location.offer.id }}</a></td>
+                                <td>{{ location.startAt|date('d/m/Y') }}</td>
+                                <td>{{ location.endAt|date('d/m/Y') }}</td>
+                                <td>{% if location.returnAt is not null %}{{ location.returnAt|date('d/m/Y') }}{% else %}N/A{% endif %}</td>
+                                <td>{{ location.returnKm }}</td>
+                                {% if location.isActive == true %}
+                                    <td>Non</td>
+                                {% else %}
+                                    <td>Oui</td>
+                                {% endif %}
+                                <td><a href="{{ path('admin_location_status',{'id': location.id}) }}">
+                                        <button type="button"
+                                                class="btn btn-primary">{% if location.isActive == true %}Annuler{% else %}Réactiver{% endif %}</button>
+                                    </a>
+                                    <a href="{{ path('admin_location_edit',{'id': location.id}) }}">
+                                        <button type="button" class="btn btn-warning">Modifier</button>
+                                    </a>
+                                    <a href="{{ path('admin_location_delete',{'id': location.id}) }}">
+                                        <button type="button" class="btn btn-danger">Supprimer</button>
+                                    </a>
+                                    {% if location.returnAt is null %}
+                                        {% if location.endAt|date('d-m-Y') < now|date('d-m-Y') %}
+                                            <a href="{{ path('admin_location_send',{'id': location.id}) }}">
+                                                <button type="button" class="btn btn-dark">Envoyer un mail</button>
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}

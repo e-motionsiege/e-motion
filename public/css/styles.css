@@ -1,5 +1,5 @@
 button{
-    background-color: #C82829;
+    background-color: #ff9505;
     color: #ffffff;
     padding: 10px 16px;
     text-transform: uppercase;
@@ -17,9 +17,7 @@ section{
 }
 
 .alert{
-    margin-top: 3% !important;
-}
-
-.alert-danger{
-    margin-top: 3% !important;
+    transition-property: opacity;
+    transition-duration: 1.5s;
+    transition-delay: 0.5s;
 }

@@ -1,0 +1,74 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Add Vehicle{% endblock %}
+
+{% block content %}
+{#    {% if error %}#}
+{#        <div class="alert alert-danger">#}
+{#            {{ error }}#}
+{#        </div>#}
+{#    {% endif %}#}
+    <section class="adminAddVehicle">
+        <h1 style="text-align: center">Ajouter un véhicule</h1>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.type) }}
+            {{ form_errors(form.type) }}
+            {{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.type) }}
+        </div>
+        <div>
+            {{ form_label(form.brand) }}
+            {{ form_errors(form.brand) }}
+            {{ form_widget(form.brand, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.brand) }}
+        </div>
+        <div>
+            {{ form_label(form.model) }}
+            {{ form_errors(form.model) }}
+            {{ form_widget(form.model, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.model) }}
+        </div>
+        <div>
+            {{ form_label(form.serial_number) }}
+            {{ form_errors(form.serial_number) }}
+            {{ form_widget(form.serial_number, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.serial_number) }}
+        </div>
+        <div>
+            {{ form_label(form.color) }}
+            {{ form_errors(form.color) }}
+            {{ form_widget(form.color, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.color) }}
+        </div>
+        <div>
+            {{ form_label(form.plate_number) }}
+            {{ form_errors(form.plate_number) }}
+            {{ form_widget(form.plate_number, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.plate_number) }}
+        </div>
+        <div>
+            {{ form_label(form.km) }}
+            {{ form_errors(form.km) }}
+            {{ form_widget(form.km, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.km) }}
+        </div>
+        <div>
+            {{ form_label(form.buyAt) }}
+            {{ form_errors(form.buyAt) }}
+            {{ form_widget(form.buyAt, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.buyAt) }}
+        </div>
+        <div>
+            {{ form_label(form.price) }}
+            {{ form_errors(form.price) }}
+            {{ form_widget(form.price, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.price) }}
+        </div>
+        <div>
+            {{ form_widget(form.submit) }}
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}
