@@ -1,91 +1,104 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Youtube Manager{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}E-Motion{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
-            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-        {% endblock %}
-    </head>
-    {% block nav %}
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar w/ text</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ path('login') }}">Login</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-      Navbar text with an inline element
-                </span>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    {% endblock %}
+</head>
+{% block nav %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar w/ text</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    {% if is_granted('ROLE_USER') %}
-
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('profile') }}">Edit Profile</a>#}
-{#                    </li>#}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('video') }}">Create a video</a>#}
-{#                    </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('user_list') }}">My videos</a>#}
-{#                        </li>#}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('logout') }}">Logout</a>#}
-{#                    </li>#}
-
-                        {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('video') }}">Create a video</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('create_category') }}">Create a category</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_users') }}">All users</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_category') }}">All categories</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_videos') }}">All videos</a>#}
-{#                        </li>#}
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('logout') }}">Logout</a>#}
-{#                        </li>#}
+                        <a class="navbar waves-effect" style="margin: auto;" href="{{ path('admin_vehicle') }}">
+                            <strong class="red-text">Admin</strong>
+                        </a>
                     {% endif %}
                 {% else %}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{{ path('register') }}">Register</a>#}
-{#                </li>#}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('login') }}">Login</a>
+                </li>
                 {% endif %}
+            </ul>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <span class="navbar-text">
+                    <a class="navbar waves-effect" style="margin: auto;" href="{{ path('logout') }}">
+                            <strong class="red-text">Se déconnecter</strong>
+                        </a>
+                </span>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {% if is_granted('ROLE_USER') %}
+
+                    {#                    <li class="nav-item">#}
+                    {#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('profile') }}">Edit Profile</a>#}
+                    {#                    </li>#}
+                    {#                    <li class="nav-item">#}
+                    {#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('video') }}">Create a video</a>#}
+                    {#                    </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('user_list') }}">My videos</a>#}
+                    {#                        </li>#}
+                    {#                    <li class="nav-item">#}
+                    {#                        <a class="nav-link" style="margin-bottom: 0" href="{{ path ('logout') }}">Logout</a>#}
+                    {#                    </li>#}
+
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('video') }}">Create a video</a>#}
+                    {#                        </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('create_category') }}">Create a category</a>#}
+                    {#                        </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_users') }}">All users</a>#}
+                    {#                        </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_category') }}">All categories</a>#}
+                    {#                        </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('admin_videos') }}">All videos</a>#}
+                    {#                        </li>#}
+                    {#                        <li class="nav-item">#}
+                    {#                            <a class="nav-link" style="margin-bottom: 0" href="{{ path ('logout') }}">Logout</a>#}
+                    {#                        </li>#}
+                {% endif %}
+            {% else %}
+                {#                <li class="nav-item">#}
+                {#                    <a class="nav-link" href="{{ path('register') }}">Register</a>#}
+                {#                </li>#}
+            {% endif %}
+        </div>
+    </nav>
+{% endblock %}
+<body>
+{% block message %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
             </div>
-        </nav>
-            {% endblock %}
-    <body>
-    {% block message %}
-        {% for label, messages in app.flashes %}
-            {% for message in messages %}
-                <div class="alert alert-{{ label }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
         {% endfor %}
+    {% endfor %}
+{% endblock %}
+<main class="main">
+    {% block body %}
     {% endblock %}
-    <main class="main">
-        {% block body %}
-            {% endblock %}
-    </main>
-        {% block javascripts %}
-            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        {% endblock %}
-    </body>
+</main>
+{% block javascripts %}
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+{% endblock %}
+</body>
 </html>
