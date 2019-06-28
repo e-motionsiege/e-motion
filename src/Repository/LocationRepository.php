@@ -47,4 +47,33 @@ class LocationRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findVehiclesLocation(\DateTime $now){
+        $query = $this->createQueryBuilder('l')
+            ->join('l.vehicle','v')
+            ->andWhere('l.startAt <= :now')
+            ->andWhere('l.endAt >= :now')
+            ->andWhere('l.returnAt is null')
+            ->setParameter('now',$now)
+            ->orderBy('v.id')
+            ->groupBy('v.id');
+
+        return $query->getQuery()
+            ->getResult();
+    }
+
+    public function findVehiclesLocationIds(\DateTime $now){
+        $query = $this->createQueryBuilder('l')
+            ->select('v.id')
+            ->join('l.vehicle','v')
+            ->andWhere('l.startAt <= :now')
+            ->andWhere('l.endAt >= :now')
+            ->andWhere('l.returnAt is null')
+            ->setParameter('now',$now)
+            ->orderBy('v.id')
+            ->groupBy('v.id');
+
+        return $query->getQuery()
+            ->getResult();
+    }
 }

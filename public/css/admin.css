@@ -1,0 +1,72 @@
+.main {
+    margin-top: 5%;
+}
+
+.nav-pills .nav-link {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 1;
+    border-radius: 5px;
+    border: 1px solid #939caf;
+    margin: 0 0 15px;
+    padding: 16px 20px 16px 17px;
+    color: #000;
+}
+
+.adminAddVehicle {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+}
+
+.adminNav .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+        background-color: white !important;
+        color: #ff9505 !important;
+}
+
+.scrollTable{
+    overflow: scroll;
+    width: 100%;
+}
+
+.table{
+    text-align: center;
+}
+
+.btn{
+    text-transform: none;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 90% !important;
+    }
+}
+
+#admin_user_roles_0{
+    margin-right: 10px;
+}
+
+#admin_user_roles_1{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#admin_user_roles_2{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#admin_user_password_first{
+    margin-left: 10px;
+    width: 81%;
+}
+
+#admin_user_password_second{
+    margin-left: 10px;
+    width: 70%;
+}
+
+

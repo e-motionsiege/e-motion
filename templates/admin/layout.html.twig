@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-3 col-md-3 adminNav">
+                <div class="nav flex-column nav-pills">
+                    <a class="nav-link {{ actual_route == 'admin_vehicle' ? 'active' }}"
+                       href="{{ path('admin_vehicle') }}">
+                        Liste des véhicules
+                    </a>
+                    <a class="nav-link {{ actual_route == 'admin_vehicle_add' ? 'active' }}"
+                       href="{{ path('admin_vehicle_add') }}">
+                        Ajouter un véhicule
+                    </a>
+                    <a class="nav-link {{ actual_route == 'admin_offer' ? 'active' }}"
+                       href="{{ path('admin_offer') }}">
+                        Liste des offres
+                    </a>
+                    <a class="nav-link {{ actual_route == 'admin_offer_add' ? 'active' }}"
+                       href="{{ path('admin_offer_add') }}">
+                        Ajouter une offre
+                    </a>
+                    <a class="nav-link {{ actual_route == 'admin_user' ? 'active' }}"
+                       href="{{ path('admin_user') }}">
+                        Liste des utilisateurs
+                    </a>
+                    <a class="nav-link {{ actual_route == 'admin_user_add' ? 'active' }}"
+                           href="{{ path('admin_user_add') }}">
+                        Ajouter un utilisateur
+                    </a>
+                    <a class="nav-link {{ actual_route == 'admin_location' ? 'active' }}"
+                       href="{{ path('admin_location') }}">
+                        Liste des locations
+                    </a>
+                    <a class="nav-link {{ actual_route == 'admin_location_add' ? 'active' }}"
+                       href="{{ path('admin_location_add') }}">
+                        Ajouter une location
+                    </a>
+                </div>
+            </div>
+            <div class="col-9 col-md-9">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

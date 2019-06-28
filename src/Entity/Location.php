@@ -61,6 +61,11 @@ class Location
      */
     private $bills;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActive = true;
+
     public function __construct()
     {
         $this->bills = new ArrayCollection();
@@ -182,6 +187,18 @@ class Location
                 $bill->setLocation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

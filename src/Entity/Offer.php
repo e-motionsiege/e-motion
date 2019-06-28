@@ -41,7 +41,7 @@ class Offer
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isActive;
+    private $isActive = true;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -52,6 +52,11 @@ class Offer
      * @ORM\OneToMany(targetEntity="App\Entity\Location", mappedBy="offer")
      */
     private $locations;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
 
     public function __construct()
     {
@@ -162,6 +167,18 @@ class Offer
                 $location->setOffer(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
