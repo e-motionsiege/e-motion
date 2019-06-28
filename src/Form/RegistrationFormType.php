@@ -55,6 +55,7 @@ class RegistrationFormType extends AbstractType
             ->add('birthdate', DateType::class, [
                 'required' => false,
                 'label' => 'Date de naissance',
+                'years' => range(1900,2019)
 /*                'widget' => 'single_text',
                 'html5' => false,
                 'attr' => ['class' => 'js-datepicker']*/

@@ -21,3 +21,8 @@ section{
     transition-duration: 1.5s;
     transition-delay: 0.5s;
 }
+
+.mid-container {
+    max-width: 50%;
+    margin: auto;
+}
