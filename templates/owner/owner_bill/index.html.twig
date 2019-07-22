@@ -1,0 +1,68 @@
+{% extends 'owner/layout.html.twig' %}
+
+{% block title %}Vos factures{% endblock %}
+
+{% block content %}
+    <section class="adminAddVehicle">
+        <h1 style="text-align: center">Liste de vos Factures</h1>
+        <div class="row" style="margin-top: 30px;">
+            <h3>Vos factures</h3>
+            <div class="scrollTable">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Montant</th>
+                        <th scope="col">Pénalité</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Marque</th>
+                        <th scope="col">Modèle</th>
+                        <th scope="col">Numéro de série</th>
+                        <th scope="col">Couleur</th>
+                        <th scope="col">Plaque d'immatriculation</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Date de naissance</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Code postal</th>
+                        <th scope="col">Téléphone</th>
+                        <th scope="col">Numéro de permis de conduire</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if allBills %}
+                        {% for allBill in allBills %}
+                            <tr>
+                                <td>{{ allBill.id }}</td>
+                                <td>{{ allBill.name }}</td>
+                                <td>{{ allBill.amount }}</td>
+                                <td>{{ allBill.penality }}</td>
+                                <td>{{ allBill.location.vehicle.type }}</td>
+                                <td>{{ allBill.location.vehicle.brand }}</td>
+                                <td>{{ allBill.location.vehicle.model }}</td>
+                                <td>{{ allBill.location.vehicle.serialNumber }}</td>
+                                <td>{{ allBill.location.vehicle.color }}</td>
+                                <td>{{ allBill.location.vehicle.plateNumber }}</td>
+                                <td>{{ allBill.location.vehicle.km }}</td>
+                                <td>{{ allBill.location.vehicle.buyAt|date('d/m/Y') }}</td>
+                                <td>{{ allBill.location.vehicle.price }}€</td>
+                                <td>{{ allBill.location.user.email }}</td>
+                                <td>{{ allBill.location.user.firstname }}</td>
+                                <td>{{ allBill.location.user.lastname }}</td>
+                                <td>{{ allBill.location.user.address }}</td>
+                                <td>{{ allBill.location.user.city }}</td>
+                                <td>{{ allBill.location.user.zipcode }}</td>
+                                <td>{{ allBill.location.user.phoneNumber }}</td>
+                                <td>{{ allBill.location.user.licenseNumber }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}

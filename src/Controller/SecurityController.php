@@ -24,7 +24,7 @@ class SecurityController extends AbstractController
         $user = new User();
         $form = $this->createForm(LoginUserType::class, $user);
         $error = $authenticationUtils->getLastAuthenticationError();
-        if ($error){
+        if ($error) {
             $this->addFlash('danger', 'Erreur dans votre email ou mot de passe');
             return $this->redirectToRoute('login');
         }
@@ -43,23 +43,28 @@ class SecurityController extends AbstractController
         $user = $this->getUser();
         $role = $user->getRoles();
         if (in_array("ROLE_ADMIN", $role)) {
-            $this->addFlash('success', 'Bienvenue '.$user->getEmail().' !');
+            $this->addFlash('success', 'Bienvenue ' . $user->getEmail() . ' !');
             return $this->redirectToRoute('admin_vehicle');
+        } elseif (in_array("ROLE_PROPRIETAIRE", $role)) {
+            $this->addFlash('success', 'Bienvenue ' . $user->getEmail() . ' !');
+            return $this->redirectToRoute('owner_vehicle');
+
         } elseif (in_array("ROLE_USER", $role)) {
-            $this->addFlash('success', 'Bienvenue '.$user->getEmail().' !');
-            return $this->redirectToRoute('profile');
-        }else{
-            $this->addFlash('success', 'Bienvenue '.$user->getEmail().' !');
-            return $this->redirectToRoute('owner');
+            $this->addFlash('success', 'Bienvenue ' . $user->getEmail() . ' !');
+            return $this->redirectToRoute('user_information');
+        } else {
+            $this->addFlash('success', 'Bienvenue ' . $user->getEmail() . ' !');
+            return $this->redirectToRoute('home');
         }
     }
 
     /**
      * @Route("/logout", name="logout")
      */
-    public function logout(AuthenticationUtils $authenticationUtils, LoggerInterface $logger)
+    public
+    function logout(AuthenticationUtils $authenticationUtils, LoggerInterface $logger)
     {
-        if($this->getUser()) {
+        if ($this->getUser()) {
             $this->get('security.token_storage')->setToken(null);
             $this->get('session')->invalidate();
         }

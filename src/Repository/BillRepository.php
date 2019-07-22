@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Bill;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -22,19 +23,20 @@ class BillRepository extends ServiceEntityRepository
     // /**
     //  * @return Bill[] Returns an array of Bill objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findBillsOwner(User $user)
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
+            ->join('b.location','l')
+            ->join('l.vehicle', 'v')
+            ->andWhere('v.user = :user')
+            ->setParameter('user', $user)
+            ->orderBy('b.id', 'DESC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Bill

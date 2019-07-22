@@ -1,0 +1,144 @@
+{% extends 'owner/layout.html.twig' %}
+
+{% block title %}Vos vehicules{% endblock %}
+
+{% block content %}
+<section class="adminAddVehicle">
+    <h1 style="text-align: center">Liste de vos véhicules</h1>
+    <div class="row" style="margin-top: 30px;">
+        <h3>Tout vos véhicules</h3>
+        <div class="scrollTable">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Marque</th>
+                    <th scope="col">Modèle</th>
+                    <th scope="col">Numéro de série</th>
+                    <th scope="col">Couleur</th>
+                    <th scope="col">Plaque d'immatriculation</th>
+                    <th scope="col">Nombre de kilomètres</th>
+                    <th scope="col">Date d'achat</th>
+                    <th scope="col">Prix d'achat</th>
+                    <th scope="col">Modifier</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if allVehicles %}
+                    {% for allVehicle in allVehicles %}
+                        <tr>
+                            <td>{{ allVehicle.id }}</td>
+                            <td>{{ allVehicle.type }}</td>
+                            <td>{{ allVehicle.brand }}</td>
+                            <td>{{ allVehicle.model }}</td>
+                            <td>{{ allVehicle.serialNumber }}</td>
+                            <td>{{ allVehicle.color }}</td>
+                            <td>{{ allVehicle.plateNumber }}</td>
+                            <td>{{ allVehicle.km }}</td>
+                            <td>{{ allVehicle.buyAt|date('d/m/Y') }}</td>
+                            <td>{{ allVehicle.price }}€</td>
+                            <td>
+                            <a href="{{ path('owner_vehicle_edit',{'id': allVehicle.id}) }}">
+                                <button type="button" class="btn btn-primary">Modifier</button>
+                            </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <h3>Véhicules en location</h3>
+        <div class="scrollTable">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Marque</th>
+                    <th scope="col">Modèle</th>
+                    <th scope="col">Numéro de série</th>
+                    <th scope="col">Couleur</th>
+                    <th scope="col">Plaque d'immatriculation</th>
+                    <th scope="col">Nombre de kilomètres</th>
+                    <th scope="col">Date d'achat</th>
+                    <th scope="col">Prix d'achat</th>
+                    <th scope="col">Modifier</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if vehiclesLocation %}
+                    {% for vehicleLocation in vehiclesLocation %}
+                        <tr>
+                            <td>{{ vehicleLocation.vehicle.id }}</td>
+                            <td>{{ vehicleLocation.vehicle.type }}</td>
+                            <td>{{ vehicleLocation.vehicle.brand }}</td>
+                            <td>{{ vehicleLocation.vehicle.model }}</td>
+                            <td>{{ vehicleLocation.vehicle.serialNumber }}</td>
+                            <td>{{ vehicleLocation.vehicle.color }}</td>
+                            <td>{{ vehicleLocation.vehicle.plateNumber }}</td>
+                            <td>{{ vehicleLocation.vehicle.km }}</td>
+                            <td>{{ vehicleLocation.vehicle.buyAt|date('d/m/Y') }}</td>
+                            <td>{{ vehicleLocation.vehicle.price }}€</td>
+                            <td>
+                            <a href="{{ path('owner_vehicle_edit',{'id': vehicleLocation.id}) }}">
+                                <button type="button" class="btn btn-primary">Modifier</button>
+                            </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <h3>Véhicules disponible</h3>
+        <div class="scrollTable">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Marque</th>
+                    <th scope="col">Modèle</th>
+                    <th scope="col">Numéro de série</th>
+                    <th scope="col">Couleur</th>
+                    <th scope="col">Plaque d'immatriculation</th>
+                    <th scope="col">Nombre de kilomètres</th>
+                    <th scope="col">Date d'achat</th>
+                    <th scope="col">Prix d'achat</th>
+                    <th scope="col">Modifier</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if vehiclesAvailable %}
+                    {% for vehicleAvailable in vehiclesAvailable %}
+                        <tr>
+                            <td>{{ vehicleAvailable.id }}</td>
+                            <td>{{ vehicleAvailable.type }}</td>
+                            <td>{{ vehicleAvailable.brand }}</td>
+                            <td>{{ vehicleAvailable.model }}</td>
+                            <td>{{ vehicleAvailable.serialNumber }}</td>
+                            <td>{{ vehicleAvailable.color }}</td>
+                            <td>{{ vehicleAvailable.plateNumber }}</td>
+                            <td>{{ vehicleAvailable.km }}</td>
+                            <td>{{ vehicleAvailable.buyAt|date('d/m/Y') }}</td>
+                            <td>{{ vehicleAvailable.price }}€</td>
+                            <td>
+                            <a href="{{ path('owner_vehicle_edit',{'id': vehicleAvailable.id}) }}">
+                                <button type="button" class="btn btn-primary">Modifier</button>
+                            </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
