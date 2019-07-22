@@ -76,7 +76,7 @@ class AdminUserController extends AbstractController
         $actual_route = $request->get('actual_route', 'admin_user');
 
         if ($user) {
-            $form = $this->createForm(AdminUserEditType::class, $user);
+            $form = $this->createForm(UserEd::class, $user);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
                 $birthdate = $user->getBirthdate();
