@@ -22,6 +22,10 @@ section {
     transition-delay: 0.5s;
 }
 
+.mid-container {
+    max-width: 50%;
+    margin: auto;
+}
 .navbar-nav a {
     color: #ff9505 !important;
 }
