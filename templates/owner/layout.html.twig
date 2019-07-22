@@ -6,12 +6,10 @@
         <div class="row">
             <div class="col-3 col-md-3 adminNav">
                 <div class="nav flex-column nav-pills">
-                    {% if is_granted('ROLE_PROPRIETAIRE') %}
                     <a class="nav-link {{ actual_route == 'owner_vehicle' ? 'active' }}"
                        href="{{ path('owner_vehicle') }}">
                         Liste de vos véhicules
                     </a>
-                    {% endif %}
                     <a class="nav-link {{ actual_route == 'owner_vehicle_add' ? 'active' }}"
                        href="{{ path('owner_vehicle_add') }}">
                         Ajouter un véhicule
