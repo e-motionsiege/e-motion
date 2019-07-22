@@ -24,7 +24,11 @@ class OwnerVehicleController extends AbstractController
         $allVehicles = $vehicleRepository->findBy(['user'=>$user->getId()]);
         $vehiclesLocation = $locationRepository->findVehiclesLocationOwner($now, $user);
         $vehiclesNotAvailableIds = $locationRepository->findVehiclesLocationIdsOwner($now, $user);
-        $vehiclesAvailable = $vehicleRepository->findVehiclesAvailable($vehiclesNotAvailableIds);
+        if (!empty($vehiclesNotAvailableIds)){
+            $vehiclesAvailable = $vehicleRepository->findVehiclesAvailable($vehiclesNotAvailableIds);
+        }else{
+            $vehiclesAvailable = $vehicleRepository->findBy(['user'=>$user->getId()]);
+        }
         return $this->render('owner/owner_vehicle/index.html.twig', [
             'actual_route' => $actual_route,
             'allVehicles'=>$allVehicles,

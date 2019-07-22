@@ -50,9 +50,6 @@ class VehicleRepository extends ServiceEntityRepository
 
     public function findVehiclesAvailable(array $ids)
     {
-        if (empty($ids)){
-            return $this->findAll();
-        }
         $query = $this->createQueryBuilder('v')
             ->andWhere('v.id not IN (:ids)')
             ->setParameter('ids', $ids);
