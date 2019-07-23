@@ -3,15 +3,22 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    {% set row = 0 %}
 <section>
 <div class="example-wrapper">
     <div class="container">
-<div class="row">
-    <h1 style="text-align: center"></h1>
-</div>
-    <div class="row">
-
+        <div class="d-flex justify-content-around flex-wrap">
+            {% for v in vehicules %}
+            <div class="card mb-4" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">{{ v.brand }} - {{ v.model }}</h5>
+                    <p class="card-text">{{ v.description }}</p>
+                    <p class="font-weight-bold">{{ v.km }} km</p>
+                    <a href="#" class="button">Voir plus</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
         {#{% for category2 in categories %}
         <div class="row">
@@ -37,7 +44,6 @@
         </div>
 
         {% endfor %}#}
-        </div>
 </div>
 </section>
 {% endblock %}

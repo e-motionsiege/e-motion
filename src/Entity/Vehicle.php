@@ -78,6 +78,10 @@ class Vehicle
      */
     private $pictureVehicles;
 
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function __construct()
     {
         $this->locations = new ArrayCollection();
@@ -267,6 +271,14 @@ class Vehicle
                 $pictureVehicle->setVehicle(null);
             }
         }
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

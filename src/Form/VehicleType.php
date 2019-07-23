@@ -34,6 +34,10 @@ class VehicleType extends AbstractType
                 'required' => true,
                 'label' => 'Modèle'
             ])
+            ->add('description', null, [
+                'required' => true,
+                'label' => 'Description'
+            ])
             ->add('serial_number', null, [
                 'required' => true,
                 'label' => 'Numéro de série'
