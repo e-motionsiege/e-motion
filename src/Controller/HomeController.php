@@ -2,9 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Category;
-use App\Entity\Video;
-use App\Form\VideoType;
+use App\Entity\Vehicle;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -19,8 +17,11 @@ class HomeController extends AbstractController
      */
     public function index(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $vehicules = $em->getRepository(Vehicle::class)->findAll();
 
         return $this->render('home/index.html.twig', [
+            'vehicules' => $vehicules
         ]);
     }
 
