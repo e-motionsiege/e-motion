@@ -2,6 +2,7 @@
 
 namespace App\Controller\User;
 
+use App\Repository\PointRepository;
 use App\Repository\UserRepository;
 use App\Form\AdminUserEditType;
 use App\Form\UserEditType;
@@ -17,11 +18,13 @@ class UserProfileController extends AbstractController
     /**
      * @Route("/user/profile", name="user_profile")
      */
-    public function index(Request $request)
+    public function index(Request $request, PointRepository $pointRepository)
     {
         $user = $this->getUser();
         $now = new \DateTime();
         $actual_route = $request->get('actual_route', 'user_profile');
+        // get points
+        $point = $pointRepository->findOneBy(['user'=>$user]);
 
         if (!$user) {
             $this->addFlash('danger', 'Utilisateur non trouvée');
@@ -30,7 +33,8 @@ class UserProfileController extends AbstractController
 
         return $this->render('user/user_profile/index.html.twig', [
             'actual_route' => $actual_route,
-            'user' => $user
+            'user' => $user,
+            'userPoint' => $point ? $point->getValue() : 0
         ]);
     }
 }
