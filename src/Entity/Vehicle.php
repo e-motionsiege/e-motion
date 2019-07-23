@@ -78,6 +78,7 @@ class Vehicle
      */
     private $pictureVehicles;
 
+    /**
      * @ORM\Column(type="text")
      */
     private $description;
@@ -271,6 +272,8 @@ class Vehicle
                 $pictureVehicle->setVehicle(null);
             }
         }
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;
