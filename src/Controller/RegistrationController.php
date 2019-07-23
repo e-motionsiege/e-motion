@@ -28,10 +28,16 @@ class RegistrationController extends AbstractController
                     $user,
                     $form->get('password')->getData()
                 )
-            );
+            )
+
+            // create user point line set to 0
+            $point = new Point();
+            $point->setUser($user);
+            $point->setValue(0);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
+            $entityManager->persist($point);
             $entityManager->flush();
 
             // do anything else you need here, like send an email
