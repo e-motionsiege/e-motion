@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\Vehicle;
 use App\Form\VehicleType;
 use App\Repository\LocationRepository;
+use App\Repository\PictureVehicleRepository;
 use App\Repository\VehicleRepository;
+use App\Service\UploadFileService;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -38,7 +40,7 @@ class AdminVehicleController extends AbstractController
     /**
      * @Route("/admin/vehicle/add", name="admin_vehicle_add")
      */
-    public function add(Request $request, EntityManagerInterface $entityManager)
+    public function add(Request $request, EntityManagerInterface $entityManager, UploadFileService $fileService)
     {
         $actual_route = $request->get('actual_route', 'admin_vehicle_add');
         $vehicle = new Vehicle();
@@ -51,6 +53,12 @@ class AdminVehicleController extends AbstractController
                 $this->addFlash('danger', "Votre date d'achat est supérieur à la date d'aujourd'hui");
                 return $this->redirectToRoute('admin_vehicle_add');
             } else {
+                if (!empty($_FILES)) {
+                    $tab = $_FILES['input2']['name'];
+                    for ($i = 0; $i < sizeof($tab); $i++) {
+                        $fileService->uploadPictures($i, $vehicle);
+                    }
+                }
                 $vehicle->setUser($this->getUser());
                 $entityManager->persist($vehicle);
                 $entityManager->flush();
@@ -69,18 +77,30 @@ class AdminVehicleController extends AbstractController
     /**
      * @Route("/admin/vehicle/edit/{id}", name="admin_vehicle_edit")
      */
-    public function editVehicle($id, VehicleRepository $vehicleRepository, EntityManagerInterface $entityManager, Request $request)
+    public function editVehicle($id, VehicleRepository $vehicleRepository, EntityManagerInterface $entityManager, Request $request, PictureVehicleRepository $pictureVehicleRepository, UploadFileService $fileService)
     {
         $vehicle = $vehicleRepository->findOneBy(['id' => $id]);
         $actual_route = $request->get('actual_route', 'admin_location');
         $now = new \DateTime();
         if ($vehicle) {
+            $pictures = $pictureVehicleRepository->findBy(['vehicle'=>$vehicle]);
             $form = $this->createForm(VehicleType::class, $vehicle);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
                 if ($vehicle->getBuyAt() > $now) {
                     $this->addFlash('danger', "Votre date d'achat est supérieur à la date d'aujourd'hui");
                     return $this->redirectToRoute('admin_vehicle');
+                }
+                if (!empty($_FILES)) {
+                    $tab = $_FILES['input2']['name'];
+                    for ($i = 0; $i < sizeof($tab); $i++) {
+                        $pictureVehicle = $pictureVehicleRepository->findBy(['vehicle'=>$vehicle, 'name'=>'picture'.($i+1)]);
+                        if ($pictureVehicle){
+                            $fileService->uploadPicturesEdit($i, $vehicle, $pictureVehicle);
+                        }else{
+                            $fileService->uploadPictures($i, $vehicle);
+                        }
+                    }
                 }
                 $entityManager->persist($vehicle);
                 $entityManager->flush();
