@@ -28,6 +28,11 @@
             {{ form_errors(form.model) }}
             {{ form_widget(form.model, { 'attr': {'class': 'form-control'} }) }}
             {{ form_help(form.model) }}
+        </div><div>
+            {{ form_label(form.description) }}
+            {{ form_errors(form.description) }}
+            {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.description) }}
         </div>
         <div>
             {{ form_label(form.serial_number) }}

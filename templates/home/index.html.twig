@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-around flex-wrap">
             {% for v in vehicules %}
             <div class="card mb-4" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <img class="card-img-top" src="{% for picture in picturesVehicle %}{% if picture.vehicle.id == v.id %} {{ asset(base_path ~ 'upload/picture/' ~ picture.value) }} {% endif %}{% endfor %}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title font-weight-bold">{{ v.brand }} - {{ v.model }}</h5>
                     <p class="card-text">{{ v.description }}</p>
