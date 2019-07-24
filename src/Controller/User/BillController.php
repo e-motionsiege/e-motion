@@ -8,6 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+/**
+ * @Security("has_role('ROLE_USER') or has_role('ROLE_OWNER') or has_role('ROLE_PROPRIETAIRE')")
+ */
 class BillController extends AbstractController
 {
 
