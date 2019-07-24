@@ -7,6 +7,7 @@ use App\Form\OwnerLocationEditType;
 use App\Repository\BillRepository;
 use App\Repository\LocationRepository;
 use App\Service\MailerService;
+use App\Service\StripeService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -98,18 +99,28 @@ class OwnerLocationController extends AbstractController
     /**
      * @Route("/owner/location/edit/{id}", name="owner_location_edit")
      */
-    public function editOffer($id, LocationRepository $locationRepository, EntityManagerInterface $entityManager, Request $request)
+    public function editOffer($id, LocationRepository $locationRepository, EntityManagerInterface $entityManager, Request $request, StripeService $stripeService)
     {
         $location = $locationRepository->findOneBy(['id' => $id]);
         $actual_route = $request->get('actual_route', 'owner_location');
+        $return = false;
 
         if ($location) {
+            if ($location->getReturnAt() != null){
+                $return = true;
+            }
             $form = $this->createForm(OwnerLocationEditType::class, $location);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
-                if ($location->getStartAt()->format('d-m-Y') > $location->getEndAt()->format('d-m-Y')){
+                if ($location->getStartAt()->format('Y-m-d') > $location->getEndAt()->format('Y-m-d')){
                     $this->addFlash('danger', 'La date de fin ne peut être infèrieur à la date de début');
                     return $this->redirectToRoute('owner_location');
+                }
+                if ($return == false){
+                    if ($location->getReturnAt() != null){
+                        $stripeService->authentication();
+                        $stripeService->charge($location);
+                    }
                 }
                 $entityManager->persist($location);
                 $entityManager->flush();
