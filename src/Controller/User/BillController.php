@@ -2,8 +2,10 @@
 
 namespace App\Controller\User;
 
+use App\Repository\BillRepository;
 use Spipu\Html2Pdf\Html2Pdf;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BillController extends AbstractController
@@ -21,10 +23,24 @@ class BillController extends AbstractController
     }
 
     /**
+     * @Route("/user/bill", name="owner_bill")
+     */
+    public function index(Request $request, BillRepository $billRepository)
+    {
+        $user = $this->getUser();
+        $actual_route = $request->get('actual_route', 'owner_bill');
+        $allBills = $billRepository->findBillsOwner($user);
+        return $this->render('owner/owner_bill/index.html.twig', [
+            'actual_route'=>$actual_route,
+            'allBills'=>$allBills
+        ]);
+    }
+
+    /**
      * @Route("/user/bill/{id}", name="bill")
      */
 
-    public function index($id)
+    public function getBill($id)
     {
         $html = $this->renderView('bill/index.html.twig', [
             'controller_name' => 'BillController',

@@ -9,7 +9,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Security\Core\Security;
+/**
+ * @Security("has_role('ROLE_USER') or has_role('ROLE_OWNER') or has_role('ROLE_PROPRIETAIRE')")
+ */
 class UserInformationController extends AbstractController
 {
     /**

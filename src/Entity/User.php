@@ -48,6 +48,8 @@ class User implements UserInterface
     private $lastname;
 
     /**
+     * @Assert\DateTime
+     * @var string A "Y-m-d H:i:s" formatted value
      * @ORM\Column(type="date", nullable=true)
      */
     private $birthdate;
@@ -73,6 +75,10 @@ class User implements UserInterface
     private $phone_number;
 
     /**
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $email;
