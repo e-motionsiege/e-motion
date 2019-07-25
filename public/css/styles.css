@@ -38,3 +38,7 @@ a:hover {
     color: #f09000 !important;
     text-decoration: none;
 }
+
+#js-event-search-submit{
+    margin-top: 20%;
+}

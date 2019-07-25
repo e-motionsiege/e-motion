@@ -28,7 +28,7 @@ class RegistrationController extends AbstractController
                     $user,
                     $form->get('password')->getData()
                 )
-            )
+            );
 
             // create user point line set to 0
             $point = new Point();

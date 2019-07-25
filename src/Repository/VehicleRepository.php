@@ -56,4 +56,32 @@ class VehicleRepository extends ServiceEntityRepository
         return $query->getQuery()
             ->getResult();
     }
+
+    public function findAllTypeVehicle(){
+        $query = $this->createQueryBuilder('v')
+            ->select('DISTINCT v.type')
+            ->orderBy('v.type');
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findAllBrandVehicle(string $type){
+        $query = $this->createQueryBuilder('v')
+            ->select('DISTINCT v.brand')
+            ->andWhere('v.type LIKE :type')
+            ->setParameter('type',"%$type%")
+            ->orderBy('v.brand');
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findAllModelVehicle(string $brand){
+        $query = $this->createQueryBuilder('v')
+            ->select('DISTINCT v.model')
+            ->andWhere('v.brand LIKE :brand')
+            ->setParameter('brand',"%$brand%")
+            ->orderBy('v.model');
+
+        return $query->getQuery()->getResult();
+    }
 }

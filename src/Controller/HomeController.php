@@ -21,10 +21,16 @@ class HomeController extends AbstractController
     {
         $vehicules = $vehicleRepository->findAll();
         $picturesVehicle = $pictureVehicleRepository->findBy(['name'=>'picture1']);
+        $typeVehicle = $vehicleRepository->findAllTypeVehicle();
+        $brandVehicle = $vehicleRepository->findAllBrandVehicle(" ");
+        $modelVehicle = $vehicleRepository->findAllModelVehicle(" ");
 
         return $this->render('home/index.html.twig', [
             'vehicules' => $vehicules,
-            'picturesVehicle'=>$picturesVehicle
+            'picturesVehicle'=>$picturesVehicle,
+            'typeVehicle'=>$typeVehicle,
+            'brandVehicle'=>$brandVehicle,
+            'modelVehicle'=>$modelVehicle
         ]);
     }
 
