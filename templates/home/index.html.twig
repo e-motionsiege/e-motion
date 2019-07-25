@@ -8,7 +8,7 @@
 <div class="example-wrapper">
     {% include 'search/search.html.twig' %}
     <div class="container">
-        <div class="d-flex justify-content-around flex-wrap">
+        <div class="d-flex justify-content-around flex-wrap" id="ajaxSearchCard">
             {% for v in vehicules %}
             <div class="card mb-4" style="width: 18rem;">
                 <img class="card-img-top" src="{% for picture in picturesVehicle %}{% if picture.vehicle.id == v.id %} {{ asset(base_path ~ 'upload/picture/' ~ picture.value) }} {% endif %}{% endfor %}" alt="Card image cap">
