@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Accueil - e-motion{% endblock %}
 
 {% block body %}
 <section>
@@ -14,7 +14,7 @@
                     <h5 class="card-title font-weight-bold">{{ v.brand }} - {{ v.model }}</h5>
                     <p class="card-text">{{ v.description }}</p>
                     <p class="font-weight-bold">{{ v.km }} km</p>
-                    <a href="#" class="button">Voir plus</a>
+                    <a href="{{ path('show_vehicle',{'id': v.id}) }}" class="button">Voir plus</a>
                 </div>
             </div>
             {% endfor %}
