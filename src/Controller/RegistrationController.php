@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Point;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,7 +29,7 @@ class RegistrationController extends AbstractController
                     $user,
                     $form->get('password')->getData()
                 )
-            )
+            );
 
             // create user point line set to 0
             $point = new Point();
