@@ -28,7 +28,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% if locations %}
+                    {% if locations is defined %}
                         {% for location in locations %}
                             <tr>
                                 <td>{{ location.id }}</td>

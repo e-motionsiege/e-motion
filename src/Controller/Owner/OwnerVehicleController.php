@@ -6,6 +6,9 @@ use App\Entity\Vehicle;
 use App\Form\VehicleType;
 use App\Repository\LocationRepository;
 use App\Repository\VehicleRepository;
+
+
+
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,6 +39,8 @@ class OwnerVehicleController extends AbstractController
             'vehiclesAvailable'=>$vehiclesAvailable
         ]);
     }
+
+
 
     /**
  * @Route("/owner/vehicle/add", name="owner_vehicle_add")

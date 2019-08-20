@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-            {% if allVehicles %}
+            {% if allVehicles is defined %}
             {% for allVehicle in allVehicles %}
                 <tr>
                     <td>{{ allVehicle.id }}</td>
@@ -71,7 +71,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% if vehiclesLocation %}
+                {% if vehiclesLocation is defined %}
                 {% for vehicleLocation in vehiclesLocation %}
                     <tr>
                         <td>{{ vehicleLocation.vehicle.id }}</td>
@@ -112,7 +112,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% if vehiclesAvailable %}
+                {% if vehiclesAvailable is defined %}
                     {% for vehicleAvailable in vehiclesAvailable %}
                         <tr>
                             <td>{{ vehicleAvailable.id }}</td>

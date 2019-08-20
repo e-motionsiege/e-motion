@@ -30,7 +30,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% if users %}
+                    {% if users is defined %}
                         {% for user in users %}
                             <tr>
                                 <td>{{ user.id }}</td>

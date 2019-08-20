@@ -33,7 +33,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% if allBills %}
+                    {% if allBills is defined %}
                         {% for allBill in allBills %}
                             <tr>
                                 <td>{{ allBill.id }}</td>

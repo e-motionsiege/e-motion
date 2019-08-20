@@ -3,7 +3,7 @@
 {% block title %}Hello SecurityController!{% endblock %}
 
 {% block body %}
-    {% if error %}
+    {% if error is defined %}
         <div class="alert alert-danger">
             {{ error }}
         </div>

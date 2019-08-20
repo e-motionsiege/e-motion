@@ -21,14 +21,10 @@ class UserLocationController extends AbstractController
         $user = $this->getUser();
         $now = new \DateTime();
         $actual_route = $request->get('actual_route', 'user_location');
-        $vehiclesLocation = $locationRepository->findVehiclesLocationOwner($now, $user);
-        $vehiclesLocationUser = $locationRepository->findVehiclesLocationOwnerUser($now, $user);
 
-        return $this->render('owner/owner_vehicle/index.html.twig', [
+        return $this->render('user/user_location/index.html.twig', [
             'actual_route' => $actual_route,
-            'vehiclesLocation'=>$vehiclesLocation,
-            'now'=>$now,
-            'vehiclesLocationUser'=>$vehiclesLocationUser
+            'controller_name' => 'AdminVehicleController',
         ]);
     }
 
@@ -58,7 +54,7 @@ class UserLocationController extends AbstractController
             }
         }
 
-        return $this->render('owner/user_location/add.html.twig', [
+        return $this->render('user/user_location/add.html.twig', [
             'controller_name' => 'UserLocationController',
             'actual_route' => $actual_route,
             'form' => $form->createView()
