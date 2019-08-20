@@ -39,6 +39,10 @@ a:hover {
     text-decoration: none;
 }
 
+.logo-site {
+    height: 35px;
+}
+
 #js-event-search-submit{
     margin-top: 20%;
 }
