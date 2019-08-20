@@ -1,0 +1,32 @@
+{% extends 'owner/layout.html.twig' %}
+
+{% block title %}Edit Location{% endblock %}
+
+{% block content %}
+    {#    {% if error %}#}
+    {#        <div class="alert alert-danger">#}
+    {#            {{ error }}#}
+    {#        </div>#}
+    {#    {% endif %}#}
+    <section class="adminAddVehicle">
+        <h1 style="text-align: center">Editer une location</h1>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.returnAt) }}
+            {{ form_errors(form.returnAt) }}
+            {{ form_widget(form.returnAt, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.returnAt) }}
+        </div>
+        <div>
+            {{ form_label(form.returnKm) }}
+            {{ form_errors(form.returnKm) }}
+            {{ form_widget(form.returnKm, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.returnKm) }}
+        </div>
+        <div>
+            {{ form_widget(form.submit) }}
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

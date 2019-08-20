@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Location;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -62,6 +63,40 @@ class LocationRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findVehiclesLocationOwner(\DateTime $now, User $user){
+        $query = $this->createQueryBuilder('l')
+            ->join('l.vehicle','v')
+            ->andWhere('l.user != :user')
+            ->andWhere('v.user = :user')
+            ->andWhere('l.startAt <= :now')
+            ->andWhere('l.endAt >= :now')
+            ->andWhere('l.returnAt is null')
+            ->setParameter('now',$now)
+            ->setParameter('user', $user)
+            ->orderBy('v.id')
+            ->groupBy('v.id');
+
+        return $query->getQuery()
+            ->getResult();
+    }
+
+    public function findVehiclesLocationOwnerUser(\DateTime $now, User $user){
+        $query = $this->createQueryBuilder('l')
+            ->join('l.vehicle','v')
+            ->andWhere('l.user = :user')
+            ->andWhere('v.user != :user')
+            ->andWhere('l.startAt <= :now')
+            ->andWhere('l.endAt >= :now')
+            ->andWhere('l.returnAt is null')
+            ->setParameter('now',$now)
+            ->setParameter('user', $user)
+            ->orderBy('v.id')
+            ->groupBy('v.id');
+
+        return $query->getQuery()
+            ->getResult();
+    }
+
     public function findVehiclesLocationIds(\DateTime $now){
         $query = $this->createQueryBuilder('l')
             ->select('v.id')
@@ -70,6 +105,23 @@ class LocationRepository extends ServiceEntityRepository
             ->andWhere('l.endAt >= :now')
             ->andWhere('l.returnAt is null')
             ->setParameter('now',$now)
+            ->orderBy('v.id')
+            ->groupBy('v.id');
+
+        return $query->getQuery()
+            ->getResult();
+    }
+
+    public function findVehiclesLocationIdsOwner(\DateTime $now, User $user){
+        $query = $this->createQueryBuilder('l')
+            ->select('v.id')
+            ->join('l.vehicle','v')
+            ->andWhere('v.user = :user')
+            ->andWhere('l.startAt <= :now')
+            ->andWhere('l.endAt >= :now')
+            ->andWhere('l.returnAt is null')
+            ->setParameter('now',$now)
+            ->setParameter('user', $user)
             ->orderBy('v.id')
             ->groupBy('v.id');
 

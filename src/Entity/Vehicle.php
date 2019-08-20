@@ -73,9 +73,20 @@ class Vehicle
      */
     private $locations;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\PictureVehicle", mappedBy="vehicle", cascade={"persist"})
+     */
+    private $pictureVehicles;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function __construct()
     {
         $this->locations = new ArrayCollection();
+        $this->pictureVehicles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -230,6 +241,47 @@ class Vehicle
                 $location->setVehicle(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PictureVehicle[]
+     */
+    public function getPictureVehicles(): Collection
+    {
+        return $this->pictureVehicles;
+    }
+
+    public function addPictureVehicle(PictureVehicle $pictureVehicle): self
+    {
+        if (!$this->pictureVehicles->contains($pictureVehicle)) {
+            $this->pictureVehicles[] = $pictureVehicle;
+            $pictureVehicle->setVehicle($this);
+        }
+
+        return $this;
+    }
+
+    public function removePictureVehicle(PictureVehicle $pictureVehicle): self
+    {
+        if ($this->pictureVehicles->contains($pictureVehicle)) {
+            $this->pictureVehicles->removeElement($pictureVehicle);
+            // set the owning side to null (unless already changed)
+            if ($pictureVehicle->getVehicle() === $this) {
+                $pictureVehicle->setVehicle(null);
+            }
+        }
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

@@ -1,0 +1,144 @@
+{% extends 'owner/layout.html.twig' %}
+
+{% block title %}Vos locations{% endblock %}
+
+{% block content %}
+    <section class="adminAddVehicle">
+        <h1 style="text-align: center">Liste des locations</h1>
+        {% if is_granted('ROLE_PROPRIETAIRE') %}
+        <div class="row" style="margin-top: 30px;">
+            <h3>Vos véhicules en location</h3>
+            <div class="scrollTable">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Téléphone</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Marque</th>
+                        <th scope="col">Modèle</th>
+                        <th scope="col">Numéro de série</th>
+                        <th scope="col">Couleur</th>
+                        <th scope="col">Plaque d'immatriculation</th>
+                        <th scope="col">Offre</th>
+                        <th scope="col">Début</th>
+                        <th scope="col">Fin prévue</th>
+                        <th scope="col">Retour du véhicule</th>
+                        <th scope="col">Nombre de kilomètres effectués</th>
+                        <th scope="col">Location annulée</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if vehiclesLocation %}
+                        {% for location in vehiclesLocation %}
+                            <tr>
+                                <td>{{ location.id }}</td>
+                                <td>{{ location.user.email }}</td>
+                                <td>{{ location.user.firstname }}</td>
+                                <td>{{ location.user.lastname }}</td>
+                                <td>{{ location.user.phoneNumber }}</td>
+                                <td>{{ location.vehicle.type }}</td>
+                                <td>{{ location.vehicle.brand }}</td>
+                                <td>{{ location.vehicle.model }}</td>
+                                <td>{{ location.vehicle.serialNumber }}</td>
+                                <td>{{ location.vehicle.color }}</td>
+                                <td>{{ location.vehicle.plateNumber }}</td>
+                                <td>{{ location.offer.name }}</td>
+                                <td>{{ location.startAt|date('d/m/Y') }}</td>
+                                <td>{{ location.endAt|date('d/m/Y') }}</td>
+                                <td>{% if location.returnAt is not null %}{{ location.returnAt|date('d/m/Y') }}{% else %}N/A{% endif %}</td>
+                                <td>{{ location.returnKm }}</td>
+                                {% if location.isActive == true %}
+                                    <td>Non</td>
+                                {% else %}
+                                    <td>Oui</td>
+                                {% endif %}
+                                <td><a href="{{ path('owner_location_status',{'id': location.id}) }}">
+                                        <button type="button"
+                                                class="btn btn-primary">{% if location.isActive == true %}Annuler{% else %}Réactiver{% endif %}</button>
+                                    </a>
+                                    <a href="{{ path('owner_location_edit',{'id': location.id}) }}">
+                                        <button type="button" class="btn btn-warning">Véhicule retourné ?</button>
+                                    </a>
+                                    <a href="{{ path('owner_location_delete',{'id': location.id}) }}">
+                                        <button type="button" class="btn btn-danger">Supprimer</button>
+                                    </a>
+                                    {% if location.returnAt is null %}
+                                        {% if location.endAt|date('d-m-Y') < now|date('d-m-Y') %}
+                                            <a href="{{ path('owner_location_send',{'id': location.id}) }}">
+                                                <button type="button" class="btn btn-dark">Envoyer un mail</button>
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row" style="margin-top: 30px;">
+            <h3>Vos location</h3>
+            <div class="scrollTable">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Téléphone</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Marque</th>
+                        <th scope="col">Modèle</th>
+                        <th scope="col">Numéro de série</th>
+                        <th scope="col">Couleur</th>
+                        <th scope="col">Plaque d'immatriculation</th>
+                        <th scope="col">Offre</th>
+                        <th scope="col">Début</th>
+                        <th scope="col">Fin prévue</th>
+                        <th scope="col">Retour du véhicule</th>
+                        <th scope="col">Nombre de kilomètres effectués</th>
+                        <th scope="col">Location annulée</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if vehiclesLocationUser %}
+                        {% for location in vehiclesLocationUser %}
+                            <tr>
+                                <td>{{ location.id }}</td>
+                                <td>{{ location.user.email }}</td>
+                                <td>{{ location.user.firstname }}</td>
+                                <td>{{ location.user.lastname }}</td>
+                                <td>{{ location.user.phoneNumber }}</td>
+                                <td>{{ location.vehicle.type }}</td>
+                                <td>{{ location.vehicle.brand }}</td>
+                                <td>{{ location.vehicle.model }}</td>
+                                <td>{{ location.vehicle.serialNumber }}</td>
+                                <td>{{ location.vehicle.color }}</td>
+                                <td>{{ location.vehicle.plateNumber }}</td>
+                                <td>{{ location.offer.name }}</td>
+                                <td>{{ location.startAt|date('d/m/Y') }}</td>
+                                <td>{{ location.endAt|date('d/m/Y') }}</td>
+                                <td>{% if location.returnAt is not null %}{{ location.returnAt|date('d/m/Y') }}{% else %}N/A{% endif %}</td>
+                                <td>{{ location.returnKm }}</td>
+                                {% if location.isActive == true %}
+                                    <td>Non</td>
+                                {% else %}
+                                    <td>Oui</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}

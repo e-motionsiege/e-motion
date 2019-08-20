@@ -1,4 +1,4 @@
-button{
+button, .button {
     background-color: #ff9505;
     color: #ffffff;
     padding: 10px 16px;
@@ -7,17 +7,42 @@ button{
     border-radius: 5px;
 }
 
-li{
+.button:hover {
+    color: #FFF !important;
+}
+
+li {
     margin-top: 5px;
     color: #777 !important;
 }
 
-section{
+section {
     margin-top: 70px;
 }
 
-.alert{
+.alert {
     transition-property: opacity;
     transition-duration: 1.5s;
     transition-delay: 0.5s;
+}
+
+.mid-container {
+    max-width: 50%;
+    margin: auto;
+}
+.navbar-nav a {
+    color: #ff9505 !important;
+}
+
+a:hover {
+    color: #f09000 !important;
+    text-decoration: none;
+}
+
+.logo-site {
+    height: 35px;
+}
+
+#js-event-search-submit{
+    margin-top: 20%;
 }

@@ -1,0 +1,35 @@
+{% extends 'owner/layout.html.twig' %}
+{% block stylesheets %}
+{{parent()}}
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+{% endblock %}
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">{{user.firstname|capitalize}} {{user.lastname|capitalize}} @{{user.username}}</h1>
+    <hr class="my-4">
+    
+    <div class="row no-gutters">
+        <div class="col-12 col-lg-6">
+            <p><i class="fa fa-location-arrow mr-1"></i>{{user.address}}, {{user.zipcode}}, {{user.city|upper}}</p>
+            <p><i class="fa fa-car mr-1"></i>Numéro de permis : {{user.licenseNumber}}</p>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p><a href="mailto:{{user.email}}?subject=Contact depuis le site web&cc=florian8.cal@gmail.com&body=Bonjour, "><i class="fa fa-envelope mr-1"></i>{{user.email}}</a></p>
+            <p>
+                <a href="tel:{{user.phoneNumber}}"><i class="fa fa-phone mr-1"></i>{{user.phoneNumber}}</a>
+                {% if user.birthdate %}
+                <i class="fa fa-birthday-cake ml-3 mr-1"></i>{{user.birthdate|date("d/m/Y", "Europe/Paris")}}
+                {% endif %}
+            </p>
+        </div>
+        {% if userPoint is defined %}
+        <p><i class="fa fa-gift mr-1"></i>Nombre de point(s) : {{userPoint}}</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+

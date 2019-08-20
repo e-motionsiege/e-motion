@@ -33,3 +33,6 @@ behat.yml
 
 # Data
 .docker/data/
+
+# Picture
+/public/upload/

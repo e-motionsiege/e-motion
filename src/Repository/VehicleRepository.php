@@ -50,13 +50,54 @@ class VehicleRepository extends ServiceEntityRepository
 
     public function findVehiclesAvailable(array $ids)
     {
-        if (empty($ids)){
-            return $this->findAll();
-        }
         $query = $this->createQueryBuilder('v')
             ->andWhere('v.id not IN (:ids)')
             ->setParameter('ids', $ids);
         return $query->getQuery()
             ->getResult();
+    }
+
+    public function findAllTypeVehicle(){
+        $query = $this->createQueryBuilder('v')
+            ->select('DISTINCT v.type')
+            ->orderBy('v.type');
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findAllBrandVehicle(string $type){
+        $query = $this->createQueryBuilder('v')
+            ->select('DISTINCT v.brand')
+            ->andWhere('v.type LIKE :type')
+            ->setParameter('type',"%$type%")
+            ->orderBy('v.brand');
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findAllModelVehicle(string $brand, string $type){
+        $query = $this->createQueryBuilder('v')
+            ->select('DISTINCT v.model')
+            ->andWhere('v.brand LIKE :brand')
+            ->andWhere('v.type LIKE :type')
+            ->setParameter('brand',"%$brand%")
+            ->setParameter('type',"%$type%")
+            ->orderBy('v.model');
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findSearchVehicle(string $type, string $brand, string $model){
+        $query = $this->createQueryBuilder('v')
+            ->select('v.id, v.brand, v.model, v.km, v.description')
+            ->andWhere('v.brand LIKE :brand')
+            ->andWhere('v.type LIKE :type')
+            ->andWhere('v.model LIKE :model')
+            ->setParameter('model',"%$model%")
+            ->setParameter('brand',"%$brand%")
+            ->setParameter('type',"%$type%")
+            ->orderBy('v.id');
+
+        return $query->getQuery()->getResult();
     }
 }
