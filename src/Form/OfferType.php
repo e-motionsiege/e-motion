@@ -53,6 +53,10 @@ class OfferType extends AbstractType
                     'Scooter' => 'scooter',
                 ],
             ])
+            ->add('name', null, [
+                'required' => true,
+                'label' => "Nommez l'offre",
+            ])
             ->add('submit', SubmitType::class);
     }
 
