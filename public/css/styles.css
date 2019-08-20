@@ -38,6 +38,7 @@ a:hover {
     color: #f09000 !important;
     text-decoration: none;
 }
+
 .logo-site {
     height: 35px;
 }
@@ -59,4 +60,8 @@ html{
 
 main{
     margin-bottom: 56px;
+}
+
+#js-event-search-submit{
+    margin-top: 20%;
 }

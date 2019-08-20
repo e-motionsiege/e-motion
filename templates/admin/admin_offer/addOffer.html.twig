@@ -49,6 +49,12 @@
             {{ form_help(form.type) }}
         </div>
         <div>
+            {{ form_label(form.name) }}
+            {{ form_errors(form.name) }}
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.name) }}
+        </div>
+        <div>
             {{ form_widget(form.submit) }}
             {{ form_end(form) }}
         </div>
