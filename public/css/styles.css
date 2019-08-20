@@ -41,3 +41,22 @@ a:hover {
 .logo-site {
     height: 35px;
 }
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+.copyright{
+    color: #ff9505 !important;
+}
+
+main{
+    margin-bottom: 56px;
+}

@@ -28,4 +28,14 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/cgl", name="cgl")
+     */
+    public function cgl(Request $request)
+    {
+        return $this->render('cgl/index.html.twig', [
+
+        ]);
+    }
+
 }
