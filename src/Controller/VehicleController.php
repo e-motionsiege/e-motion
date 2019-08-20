@@ -11,8 +11,6 @@ class VehicleController extends AbstractController
 {
     /**
      * @Route("/vehicle/{id}", name="show_vehicle")
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index($id)
     {
