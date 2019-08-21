@@ -103,7 +103,7 @@ class HomeController extends AbstractController
                 if ($picture){
                 $tabVehicules[] = ['vehicule'=>$vehicule, 'picture'=>getenv('FRONT_BASE_PATH').'upload/picture/'.$picture->getValue(), 'path'=>$this->generateUrl('show_vehicle', array('id'=>$vehicule['id']), true )];
                 }else{
-                    $tabVehicules[] = ['vehicule'=>$vehicule, 'picture'=>null, 'path'=>$this->generateUrl('show_vehicle', array('id'=>$vehicule['id']), true )];
+                    $tabVehicules[] = ['vehicule'=>$vehicule, 'picture'=>null, 'path'=>getenv('FRONT_BASE_PATH').$this->generateUrl('show_vehicle', array('id'=>$vehicule['id']), true )];
                 }
             }
         }

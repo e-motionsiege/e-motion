@@ -92,7 +92,7 @@ $(document).ready(function () {
                              '<h5 class="card-title font-weight-bold">'+result['vehicule']['brand']+' - '+''+result['vehicule']['model']+'</h5>'+
                              '<p class="card-text">'+result['vehicule']['description']+'</p>'+
                              '<p class="font-weight-bold">'+result['vehicule']['km']+' km</p>'+
-                             '<a href="{{ path(\'show_vehicle\',{\'id\': v.id}) }}" class="button">Voir plus</a>'+
+                             '<a href="'+result['path']+'" class="button">Voir plus</a>'+
                              '</div>'+
                              '</div>');
                          console.log(result);
