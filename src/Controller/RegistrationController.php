@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Point;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Service\MailerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, MailerService $mailerService): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -40,6 +41,8 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->persist($point);
             $entityManager->flush();
+
+            $mailerService->sendMailRegistration($user);
 
             // do anything else you need here, like send an email
 
