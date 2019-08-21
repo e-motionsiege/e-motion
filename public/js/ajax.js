@@ -79,7 +79,6 @@ $(document).ready(function () {
                     model: model
                 },
                 success: function (data) {
-                    console.log(data);
 
                     // $('#modelVehicule').find('option').remove();
                     // $('#modelVehicule').append('<option selected disabled>Choisir</option>');
@@ -95,7 +94,6 @@ $(document).ready(function () {
                              '<a href="'+result['path']+'" class="button">Voir plus</a>'+
                              '</div>'+
                              '</div>');
-                         console.log(result);
                      });
                 },
                 error: function (data) {
