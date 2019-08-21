@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Accueil - e-motion{% endblock %}
 
 {% block body %}
 <section>
+    <h1 class="h1 text-center mb-5">Location de véhicules électriques</h1>
 <div class="example-wrapper">
+    {% include 'search/search.html.twig' %}
     <div class="container">
-        <div class="d-flex justify-content-around flex-wrap">
+        <div class="d-flex justify-content-around flex-wrap" id="ajaxSearchCard">
             {% for v in vehicules %}
             <div class="card mb-4" style="width: 18rem;">
                 <img class="card-img-top" src="{% for picture in picturesVehicle %}{% if picture.vehicle.id == v.id %} {{ asset(base_path ~ 'upload/picture/' ~ picture.value) }} {% endif %}{% endfor %}" alt="Card image cap">
@@ -14,36 +16,12 @@
                     <h5 class="card-title font-weight-bold">{{ v.brand }} - {{ v.model }}</h5>
                     <p class="card-text">{{ v.description }}</p>
                     <p class="font-weight-bold">{{ v.km }} km</p>
-                    <a href="#" class="button">Voir plus</a>
+                    <a href="{{ path('show_vehicle',{'id': v.id}) }}" class="button">Voir plus</a>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-        {#{% for category2 in categories %}
-        <div class="row">
-            {% if category2.videos is null %}
-                {% else %}
-                    <h2 style="text-align: center">#{{ category2.name }}</h2>
-            {% endif %}
-                {% for video in videos %}
-                    {% if category2 in video.category %}
-
-                <div class="col-md-3">
-                    <a href="{{ path('video_profile', {'byId':video.id}) }}" style="color: #333; font-weight: bold;"> <h4>{{ video.title }}</h4></a>
-                    <iframe src="{{ video.urlEmbed }}" width="100%" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p style="color: #C82829 !important;">{% for category4 in video.category %} <a href="{{ path('category_profile', {'byId':category4.id}) }}" style="color: #C82829 !important;">#{{ category4.name }}</a> {% endfor %}</p>
-                    <p style="    word-break: break-all;">{{ video.description }}</p>
-                    <p>Created by <a href="{{ path('home_user_profile', {'byId':video.user.id}) }}" style="color: #333; font-weight: bold;">{{ video.user.firstname }} {{ video.user.lastname }} </a></p>
-                     <a href="{{ path('article_profile', {'byName':article.name}) }}">Link</a>
-                    <a href="{{ path('article_remove', {'id': article.id}) }} ">Delete</a>
-
-                </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-
-        {% endfor %}#}
 </div>
 </section>
 {% endblock %}

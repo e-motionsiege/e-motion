@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Point;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,8 +31,14 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // create user point line set to 0
+            $point = new Point();
+            $point->setUser($user);
+            $point->setValue(0);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
+            $entityManager->persist($point);
             $entityManager->flush();
 
             // do anything else you need here, like send an email

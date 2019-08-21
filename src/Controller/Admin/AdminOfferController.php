@@ -26,12 +26,14 @@ class AdminOfferController extends AbstractController
     public function index(Request $request, OfferRepository $offerRepository)
     {
         $actual_route = $request->get('actual_route', 'admin_offer');
-        $allOffers = $offerRepository->findAll();
+        $activeOffers = $offerRepository->findBy(['isActive' => true]);
+        $inactiveOffers = $offerRepository->findBy(['isActive' => false]);
 
         return $this->render('admin/admin_offer/index.html.twig', [
             'controller_name' => 'AdminVehicleController',
             'actual_route' => $actual_route,
-            'allOffers' => $allOffers
+            'activeOffers' => $activeOffers,
+            'inactiveOffers' => $inactiveOffers,
         ]);
     }
 
