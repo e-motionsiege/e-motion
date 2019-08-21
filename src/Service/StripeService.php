@@ -32,24 +32,19 @@ class StripeService
 
     public function charge(Location $location){
         $offer = $location->getOffer();
-        $user = $location->getUser();
         $km = $location->getReturnKm();
         $startAt = $location->getStartAt()->format('Y-m-d');
         $endAt = $location->getEndAt()->format('Y-m-d');
         $returnAt = $location->getReturnAt()->format('Y-m-d');
-        $end = strtotime($endAt);
         $start = strtotime($startAt);
         $return = strtotime($returnAt);
-        $datediff = $return - $end;
 
-        $day = (int)round($datediff / (60 * 60 * 24));
-
-        if ($day > 0){
+        if ($returnAt > $endAt){
             $penality = 1.15;
         }else{
             $penality = 0;
         }
-        $diffStartEnd = $end - $start;
+        $diffStartEnd = $return - $start;
         $totDay = (int)round($diffStartEnd / (60 * 60 * 24));
 
         $amount = (($km*$offer->getAmountKm())+($totDay*$offer->getAmountDuration()));
