@@ -6,8 +6,9 @@
     <section class="adminAddVehicle">
         <h1 style="text-align: center">Liste des locations</h1>
         {% if is_granted('ROLE_PROPRIETAIRE') %}
-        <div class="row" style="margin-top: 30px;">
+        <div class="row d-flex flex-column" style="margin-top: 30px;">
             <h3>Vos véhicules en location</h3>
+            {% if vehiclesLocation %}
             <div class="scrollTable">
                 <table class="table table-hover">
                     <thead>
@@ -33,7 +34,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% if vehiclesLocation %}
                         {% for location in vehiclesLocation %}
                             <tr>
                                 <td>{{ location.id }}</td>
@@ -77,14 +77,19 @@
                                 </td>
                             </tr>
                         {% endfor %}
-                    {% endif %}
                     </tbody>
                 </table>
             </div>
+            {% else %}
+                <div class="mt-2">
+                    <p>Aucun véhicules loués...</p>
+                </div>
+            {% endif %}
         </div>
         {% endif %}
-        <div class="row" style="margin-top: 30px;">
+        <div class="row d-flex flex-column" style="margin-top: 30px;">
             <h3>Vos location</h3>
+            {% if vehiclesLocationUser %}
             <div class="scrollTable">
                 <table class="table table-hover">
                     <thead>
@@ -109,7 +114,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% if vehiclesLocationUser %}
                         {% for location in vehiclesLocationUser %}
                             <tr>
                                 <td>{{ location.id }}</td>
@@ -135,10 +139,14 @@
                                 {% endif %}
                             </tr>
                         {% endfor %}
-                    {% endif %}
                     </tbody>
                 </table>
             </div>
+            {% else %}
+                <div class="mt-2">
+                    <p>Aucun véhicules loués...</p>
+                </div>
+            {% endif %}
         </div>
     </section>
 {% endblock %}
