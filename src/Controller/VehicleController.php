@@ -44,10 +44,6 @@ class VehicleController extends AbstractController
         ]);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if (($location->getStartAt() < $now) || ($location->getEndAt() < $location->getStartAt())) {
-                $this->addFlash('danger', "Votre date de début doit être à partir d'aujourd'hui");
-                return $this->redirectToRoute('show_vehicle',array('id'=>$id));
-            } else {
                 $startAt = $location->getStartAt()->format('Y-m-d');
                 $endAt = $location->getEndAt()->format('Y-m-d');
                 $start = strtotime($startAt);
