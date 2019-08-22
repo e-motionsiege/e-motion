@@ -1,23 +1,94 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+​
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>e-Motion</title>
+    <meta charset="utf-8">
+    ​
+    <title>Facture</title>
+    <meta name="description" content="E-Motion Facture">
+    <meta name="author" content="E-motion">
+{#    <link rel="icon" type="image/png" href="./public/images/e-motion-logo.png"/>#}
 </head>
-
-<body>
-<div class="example-wrapper">
-    <h1 class="text-center">Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a
-                        href="{{ '/Users/matthieuparis/Sites/e-motion/src/Controller/BillController.php'|file_link(0) }}">src/Controller/BillController.php</a></code>
-        </li>
-        <li>Your template at <code><a
-                        href="{{ '/Users/matthieuparis/Sites/e-motion/templates/bill/index.html.twig'|file_link(0) }}">templates/bill/index.html.twig</a></code>
-        </li>
-    </ul>
+<body style="font-size: 16px; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; flex-direction: column; margin: 0; padding: 0; background-color: #f8f9fa;">
+<div style="display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; flex: 1 1 0%; -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; padding: 15px;">
+{#    <div style="flex-grow: 1; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; justify-content: space-around; -webkit-box-align: center; -moz-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; padding: 15px;">#}
+{#        <img style="height: 38px;" src="./public/images/e-motion-logo.png" alt="E-motion">#}
+{#    </div>#}
+    <div style="flex-grow: 1; text-align: center;padding: 15px;">
+        <h1 style="margin: 0; width: auto; background-color: #E9EDEE;">Facture</h1>
+    </div>
+</div>
+<div>
+    <!-- add space between -->
+    <div style="display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; flex-direction: column; justify-content: space-between; height: 50%; padding: 0px; width: 92%;">
+        <!-- entreprise user -->
+        <div style="flex-grow: 1; padding: 15px; background-color: #E9EDEE;">
+            <p style="font-weight: bold;">Facturé par</p>
+            <p>E-MOTION</p>
+            <p>1 rue de e-motion</p>
+            <p>75012 VILLE</p>
+            <p>N° SIRET: 12345678901234</p>
+        </div>
+        <!-- current user -->
+        <div style="flex-grow: 1; padding: 15px; margin-top: 15px; background-color: #E9EDEE;">
+            <p style="font-weight: bold;">Facturé à</p>
+            <p>{{ user.firstname|capitalize }} {{ user.lastname|capitalize }}</p>
+            <p>{{ user.address }}</p>
+            <p>{{ user.zipcode }} {{ user.city|upper }}</p>
+        </div>
+        <div style="flex-grow: 1; margin-top: 15px; padding: 15px; background-color: #E9EDEE;">
+            <p style="font-weight: bold;">Offre utilisée</p>
+            <p>km maximum : {{ offer.km }}</p>
+            <p>durée maximum : {{ offer.duration }}</p>
+            <p>prix par km : {{ offer.amountKm }} €</p>
+            <p>prix par durée : {{ offer.amountDuration }} €</p>
+            {# <p>{{offer.isActive}}</p> #}
+            {# <p>{{offer.type}}</p> #}
+        </div>
+        <div style="flex-grow: 1; margin-top: 15px; padding: 15px; background-color: #E9EDEE;">
+            <p>{{ vehicule.brand }} {{ vehicule.model }} {{ vehicule.color }} loué
+                du {{ location.startAt|date("d/m/Y", "Europe/Paris") }}
+                au {{ location.endAt|date("d/m/Y", "Europe/Paris") }}</p>
+            <p>Véhicule rendu le {{ location.returnAt|date("d/m/Y", "Europe/Paris") }}</p>
+            <p>{{ location.returnKm }}km roulé</p>
+        </div>
+        <!-- cost -->
+        {% set invoiceTotal = ((invoice.amount)*(invoice.penality)) %}
+        <!-- add flex: ... -->
+        <div style="flex-grow: 1; margin-top: 15px; padding: 15px; background-color: #E9EDEE;">
+            <p style="font-weight: bold;">Offre utilisée</p>
+            <p>Facture n° : {{ invoice.id }}</p>
+            <p>Date : {{ invoice.createdAt|date('d/m/Y') }}</p>
+            <p>Coût : {{ invoice.amount|number_format(2, ',', ' ') }} €</p>
+            {% if invoice.penality > 0 %}
+            <p>Pénalité : {{ ((invoiceTotal)-(invoice.amount)) }} €</p>
+            {% else %}
+                <p>Pénalité : 0 €</p>
+            {% endif %}
+            <p style="font-weight: bold;">Total : {{ invoiceTotal|number_format(2, ',', ' ') }} €</p>
+            {# <p>{{offer.isActive}}</p> #}
+            {# <p>{{offer.type}}</p> #}
+        </div>
+{#        <div style="flex-grow: 1; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; flex: 1 1 0%; margin-top: 15px; padding: 15px; background-color: #E9EDEE;">#}
+            <!-- add flex: ... -->
+{#            <div style="display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; flex-direction: column; flex: 1 1 0%;">#}
+{#                <p class="item-grow">Facture n° : {{ invoice.id }}</p>#}
+{#                <p class="item-grow">Date : {{ invoice.createdAt|date('d/m/Y') }}</p>#}
+{#                <p class="item-grow">Coût : {{ invoice.amount|number_format(2, ',', ' ') }} €</p>#}
+{#                <p class="item-grow">Pénalité : {{ invoice.penality|number_format(2, ',', ' ') }} €</p>#}
+{#                <p class="item-grow">Total : {{ invoiceTotal|number_format(2, ',', ' ') }} €</p>#}
+{#            </div>#}
+            <!-- add flex: ... -->
+{#            <div style="display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; flex-direction: column; flex: 1 1 0%;">#}
+{#                <p style="flex-grow: 1;">{{ invoice.id }}</p>#}
+{#                <p style="flex-grow: 1;">{{ invoice.createdAt|date('d/m/Y') }}</p>#}
+{#                <p style="flex-grow: 1;">{{ invoice.amount|number_format(2, ',', ' ') }} €</p>#}
+{#                <p style="flex-grow: 1;">{{ invoice.penality|number_format(2, ',', ' ') }} €</p>#}
+{#                <p style="flex-grow: 1; font-weight: bold;">{{ invoiceTotal|number_format(2, ',', ' ') }} €</p>#}
+{#            </div>#}
+{#        </div>#}
+    </div>
 </div>
 </body>
+</page>
 </html>

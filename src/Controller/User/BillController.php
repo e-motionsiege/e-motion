@@ -44,10 +44,17 @@ class BillController extends AbstractController
      * @Route("/user/bill/{id}", name="bill")
      */
 
-    public function getBill($id)
+    public function getBill($id, BillRepository $billRepository)
     {
+        $bill = $billRepository->findOneBy(['id'=>$id]);
         $html = $this->renderView('bill/index.html.twig', [
             'controller_name' => 'BillController',
+            'invoice'=>$bill,
+            'location'=>$bill->getLocation(),
+            'user'=>$bill->getLocation()->getUser(),
+            'vehicule'=>$bill->getLocation()->getVehicle(),
+            'offer'=>$bill->getLocation()->getOffer()
+
         ]);
 
         $this->htmltopdf->create('P','A4','fr',true,'UTF-8',array(10,15,10,15));
