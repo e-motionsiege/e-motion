@@ -27,7 +27,7 @@ class MailerService
     public function sendMailVehicleLocation(Location $location)
     {
         $message = (new \Swift_Message("Vous n'avez pas rendu votre véhicule !"))
-            ->setFrom('admin@e-motion.com')
+            ->setFrom('contact@arizhassan.pro')
             ->setTo($location->getUser()->getEmail())
             ->setBody(
                 $this->templates->render(
@@ -56,7 +56,7 @@ class MailerService
     public function sendMailRegistration(User $user)
     {
         $message = (new \Swift_Message("Bienvenue chez E-Motion !"))
-            ->setFrom('admin@e-motion.com')
+            ->setFrom('contact@arizhassan.pro')
             ->setTo($user->getEmail())
             ->setBody(
                 $this->templates->render(
