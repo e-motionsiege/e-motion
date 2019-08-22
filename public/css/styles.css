@@ -46,3 +46,8 @@ a:hover {
 #js-event-search-submit{
     margin-top: 20%;
 }
+
+.line {
+    display: flex;
+    justify-content: space-between;
+}
