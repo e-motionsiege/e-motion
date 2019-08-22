@@ -6,7 +6,8 @@ use App\Entity\Location;
 use App\Entity\Offer;
 use App\Entity\PictureVehicle;
 use App\Entity\Vehicle;
-use App\Form\UserLocationType;
+use App\Form\UserLocationTypeVoiture;
+use App\Form\UserLocationTypeScooter
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +30,11 @@ class VehicleController extends AbstractController
         ]);
 
         $location = new Location();
-        $form = $this->createForm(UserLocationType::class, $location);
+        if ($vehicle->getType() == 'voiture'){
+            $form = $this->createForm(UserLocationTypeVoiture::class, $location);
+        }elseif ($vehicle->getType() == 'scooter'){
+            $form = $this->createForm(UserLocationTypeScooter::class, $location);
+        }
         $form->handleRequest($request);
         $now = new \DateTime();
 

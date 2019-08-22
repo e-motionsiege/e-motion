@@ -22,7 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserLocationType extends AbstractType
+class UserLocationTypeVoiture extends AbstractType
 {
     protected $notAvailable;
     protected $vehicleRepository;
@@ -55,7 +55,7 @@ class UserLocationType extends AbstractType
                 'class' => Offer::class,
                 'required' => true,
                 'placeholder'=>'Choisir',
-                'choices' => $this->offerRepository->findBy(['isActive' => true]),
+                'choices' => $this->offerRepository->findBy(['isActive' => true, 'type'=>'voiture']),
                 'choice_label' => 'name',
                 'label' => 'Offre'
             ])
