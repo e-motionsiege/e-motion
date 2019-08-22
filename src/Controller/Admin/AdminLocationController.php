@@ -25,11 +25,13 @@ class AdminLocationController extends AbstractController
     public function index(LocationRepository $locationRepository, Request $request)
     {
         $actual_route = $request->get('actual_route', 'admin_location');
-        $locations = $locationRepository->findAll();
+        $activeLocations = $locationRepository->findBy(['isActive' => true]);
+        $inactiveLocations = $locationRepository->findBy(['isActive' => false]);
 
         return $this->render('admin/admin_location/index.html.twig', [
             'actual_route' => $actual_route,
-            'locations' => $locations,
+            'activeLocations' => $activeLocations,
+            'inactiveLocations' => $inactiveLocations,
             'now'=>new \DateTime()
         ]);
     }
