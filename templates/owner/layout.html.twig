@@ -6,23 +6,23 @@
         <div class="row">
             <div class="col-3 col-md-3 adminNav">
                 <div class="nav flex-column nav-pills">
-                    <a class="nav-link {{ actual_route == 'owner_vehicle' ? 'active' }}"
+                    <a class="nav-link admin-btn {{ actual_route == 'owner_vehicle' ? 'active' }}"
                        href="{{ path('owner_vehicle') }}">
                         Liste de vos véhicules
                     </a>
-                    <a class="nav-link {{ actual_route == 'owner_vehicle_add' ? 'active' }}"
+                    <a class="nav-link admin-btn {{ actual_route == 'owner_vehicle_add' ? 'active' }}"
                        href="{{ path('owner_vehicle_add') }}">
                         Ajouter un véhicule
                     </a>
-                    <a class="nav-link {{ actual_route == 'owner_location' ? 'active' }}"
+                    <a class="nav-link admin-btn {{ actual_route == 'owner_location' ? 'active' }}"
                        href="{{ path('owner_location') }}">
                         Liste de vos locations
                     </a>
-                    <a class="nav-link {{ actual_route == 'owner_bill' ? 'active' }}"
+                    <a class="nav-link admin-btn {{ actual_route == 'owner_bill' ? 'active' }}"
                        href="{{ path('owner_bill') }}">
                         Liste de vos factures
                     </a>
-                    <a class="nav-link {{ actual_route == 'user_information' ? 'active' }}"
+                    <a class="nav-link admin-btn {{ actual_route == 'user_information' ? 'active' }}"
                        href="{{ path('user_information') }}">
                         Mes informations
                     </a>
