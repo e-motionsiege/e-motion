@@ -59,14 +59,13 @@ class VehicleController extends AbstractController
             $vehicleInLocation = $em->getRepository(Location::class)->findBy([
                 'vehicle' => $vehicle
             ]);
+            if ($vehicleInLocation){
             foreach ($vehicleInLocation as $userVehicle) {
-                if (($location->getStartAt() >= $userVehicle->getStartAt()) || ($location->getStartAt() <= $userVehicle->getEndAt())) {
+                if (($location->getStartAt() < $userVehicle->getStartAt()) || ($location->getStartAt() > $userVehicle->getEndAt())) {
                     if (($location->getEndAt() < $userVehicle->getStartAt()) || ($location->getEndAt() > $userVehicle->getEndAt())) {
                         $location->setUser($this->getUser());
                         $location->setVehicle($vehicle);
                         $entityManager->persist($location);
-                        $this->getUser()->setRoles(['ROLE_PROPRIETAIRE', 'ROLE_USER']);
-                        $entityManager->persist($this->getUser());
                         $entityManager->flush();
                         $this->addFlash('success', 'Votre vehicule a été loué !');
                         return $this->redirectToRoute('show_vehicle', array('id' => $id));
@@ -80,6 +79,14 @@ class VehicleController extends AbstractController
                     return $this->redirectToRoute('show_vehicle', array('id' => $id));
 
                 }
+            }
+            }else{
+                $location->setUser($this->getUser());
+                $location->setVehicle($vehicle);
+                $entityManager->persist($location);
+                $entityManager->flush();
+                $this->addFlash('success', 'Votre vehicule a été loué !');
+                return $this->redirectToRoute('show_vehicle', array('id' => $id));
             }
         }
 
