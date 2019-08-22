@@ -63,7 +63,7 @@ class AdminLocationController extends AbstractController
     /**
      * @Route("/admin/location/edit/{id}", name="admin_location_edit")
      */
-    public function editOffer($id, LocationRepository $locationRepository, EntityManagerInterface $entityManager, Request $request, StripeService $stripeService)
+    public function editLocation($id, LocationRepository $locationRepository, EntityManagerInterface $entityManager, Request $request, StripeService $stripeService)
     {
         $location = $locationRepository->findOneBy(['id' => $id]);
         $actual_route = $request->get('actual_route', 'admin_location');

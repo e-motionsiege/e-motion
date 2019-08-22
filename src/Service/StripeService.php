@@ -6,6 +6,7 @@ namespace App\Service;
 
 use App\Entity\Bill;
 use App\Entity\Location;
+use App\Entity\Point;
 use Doctrine\ORM\EntityManagerInterface;
 use Stripe\Charge;
 use Stripe\Stripe;
@@ -56,6 +57,13 @@ class StripeService
         $bill->setPenality($penality);
         $bill->setLocation($location);
         $this->entityManager->persist($bill);
+
+        $point = $this->entityManager->getRepository(Point::class)->findOneBy(['user'=>$location->getUser()]);
+
+        if ($point){
+            $initPoint = $point->getValue();
+            $point->setValue($initPoint + 50);
+        }
 
         if ($penality != 0){
             $charge = Charge::create([
