@@ -1,10 +1,14 @@
-button {
+button, .button {
     background-color: #ff9505;
     color: #ffffff;
     padding: 10px 16px;
     text-transform: uppercase;
     margin-top: 10px;
     border-radius: 5px;
+}
+
+.button:hover {
+    color: #FFF !important;
 }
 
 li {
@@ -33,4 +37,12 @@ section {
 a:hover {
     color: #f09000 !important;
     text-decoration: none;
+}
+
+.logo-site {
+    height: 35px;
+}
+
+#js-event-search-submit{
+    margin-top: 20%;
 }

@@ -11,46 +11,77 @@
 <section class="adminAddVehicle">
     <h1 style="text-align: center">Liste des offres</h1>
     <div class="row" style="margin-top: 30px;">
-        <div class="scrollTable">
-        <table class="table table-hover">
+        {% if activeOffers %}
+            <h3>Liste des offres actives</h3>
+            <div class="scrollTable mb-5">
+            <table class="table table-hover">
             <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Km maximum</th>
-                    <th scope="col">Durée maximum (Jours)</th>
-                    <th scope="col">Montant par km</th>
-                    <th scope="col">Montant par jours</th>
-                    <th scope="col">Actif</th>
-                    <th scope="col">Type de véhicule</th>
-                    <th scope="col">Action</th>
-                </tr>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Km maximum</th>
+                <th scope="col">Durée maximum (Jours)</th>
+                <th scope="col">Montant par km</th>
+                <th scope="col">Montant par jours</th>
+                <th scope="col">Type de véhicule</th>
+                <th scope="col">Action</th>
+            </tr>
             </thead>
-            <tbody>
-            {% if allOffers is defined %}
-            {% for allOffer in allOffers %}
-                <tr>
-                    <td>{{ allOffer.id }}</td>
-                    <td>{{ allOffer.km }}</td>
-                    <td>{{ allOffer.duration }}</td>
-                    <td>{{ allOffer.amountKm }}€</td>
-                    <td>{{ allOffer.amountDuration }}€</td>
-                    {% if allOffer.isActive == true %}
-                        <td>Oui</td>
-                    {% else %}
-                        <td>Non</td>
-                    {% endif %}
-                    <td>{{ allOffer.type }}</td>
-                    <td><a href="{{ path('admin_offer_status',{'id': allOffer.id}) }}"> <button type="button" class="btn btn-primary">{% if allOffer.isActive == true %}Désactiver{% else %}Activer{% endif %}</button></a>
-                        <a href="{{ path('admin_offer_edit',{'id': allOffer.id}) }}"><button type="button" class="btn btn-warning">Modifier</button></a>
-                        <a href="{{ path('admin_offer_delete',{'id': allOffer.id}) }}"><button type="button" class="btn btn-danger">Supprimer</button></a>
 
+            {% for activeOffer in activeOffers %}
+                <tbody>
+                <tr>
+                    <td>{{ activeOffer.id }}</td>
+                    <td>{{ activeOffer.name }}</td>
+                    <td>{{ activeOffer.km }}</td>
+                    <td>{{ activeOffer.duration }}</td>
+                    <td>{{ activeOffer.amountKm }}€</td>
+                    <td>{{ activeOffer.amountDuration }}€</td>
+                    <td>{{ activeOffer.type }}</td>
+                    <td><a href="{{ path('admin_offer_status',{'id': activeOffer.id}) }}"> <button type="button" class="btn btn-primary">Désactiver</button></a>
+                        <a href="{{ path('admin_offer_edit',{'id': activeOffer.id}) }}"><button type="button" class="btn btn-warning">Modifier</button></a>
                     </td>
                 </tr>
+                </tbody>
             {% endfor %}
-            {% endif %}
-            </tbody>
-        </table>
-        </div>
+                </table>
+                </div>
+        {% endif %}
+        {% if inactiveOffers %}
+            <h3>Liste des offres inactives</h3>
+            <div class="scrollTable">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Km maximum</th>
+                        <th scope="col">Durée maximum (Jours)</th>
+                        <th scope="col">Montant par km</th>
+                        <th scope="col">Montant par jours</th>
+                        <th scope="col">Type de véhicule</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    {% for inactiveOffer in inactiveOffers %}
+                        <tbody>
+                        <tr>
+                            <td>{{ inactiveOffer.id }}</td>
+                            <td>{{ inactiveOffer.name }}</td>
+                            <td>{{ inactiveOffer.km }}</td>
+                            <td>{{ inactiveOffer.duration }}</td>
+                            <td>{{ inactiveOffer.amountKm }}€</td>
+                            <td>{{ inactiveOffer.amountDuration }}€</td>
+                            <td>{{ inactiveOffer.type }}</td>
+                            <td><a href="{{ path('admin_offer_status',{'id': inactiveOffer.id}) }}"> <button type="button" class="btn btn-primary">Activer</button></a>
+                                <a href="{{ path('admin_offer_edit',{'id': inactiveOffer.id}) }}"><button type="button" class="btn btn-warning">Modifier</button></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

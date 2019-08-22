@@ -10,7 +10,11 @@
 {#    {% endif %}#}
     <section class="adminAddVehicle">
         <h1 style="text-align: center">Ajouter un véhicule</h1>
-        {{ form_start(form) }}
+        {{ form_start(form, {
+            'attr': {
+                'enctype': 'multipart/form-data',
+            }
+        }) }}
         {{ form_errors(form) }}
         <div>
             {{ form_label(form.type) }}
@@ -29,6 +33,12 @@
             {{ form_errors(form.model) }}
             {{ form_widget(form.model, { 'attr': {'class': 'form-control'} }) }}
             {{ form_help(form.model) }}
+        </div>
+        <div>
+            {{ form_label(form.description) }}
+            {{ form_errors(form.description) }}
+            {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+            {{ form_help(form.description) }}
         </div>
         <div>
             {{ form_label(form.serial_number) }}
@@ -65,6 +75,16 @@
             {{ form_errors(form.price) }}
             {{ form_widget(form.price, { 'attr': {'class': 'form-control'} }) }}
             {{ form_help(form.price) }}
+        </div>
+        <div class="form-group">
+            <label class="control-label">
+                Photos de votre véhicule
+            </label>
+            <div class="">
+                            <span class="btn btn-default btn-file" id="spanInputFile">
+                                <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true">
+                            </span>
+            </div>
         </div>
         <div>
             {{ form_widget(form.submit) }}

@@ -6,6 +6,7 @@ use App\Entity\Vehicle;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,6 +33,10 @@ class VehicleType extends AbstractType
             ->add('model', null, [
                 'required' => true,
                 'label' => 'Modèle'
+            ])
+            ->add('description', null, [
+                'required' => true,
+                'label' => 'Description'
             ])
             ->add('serial_number', null, [
                 'required' => true,

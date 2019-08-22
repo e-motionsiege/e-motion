@@ -1,0 +1,43 @@
+
+{% block body %}
+    <div class="container mb-5">
+    <div class="row justify-content-center">
+                <!--end of col-->
+        <div class="form-group col-3" id="colType" data-route="{{ path('home_type_ajax') }}">
+                    <label for="typeVehicule">Type</label>
+                    <select class="form-control" id="typeVehicule">
+                        <option disabled selected> Choisir</option>
+                        {% for type in typeVehicle %}
+                          <option value="{{ type.type }}"> {{ type.type|upper }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group col-3" id="colBrand" data-route="{{ path('home_brand_ajax') }}">
+                    <label for="marqueVehicule">Marque</label>
+                    <select class="form-control" id="brandVehicule">
+                        <option disabled selected> Choisir</option>
+                        {% for brand in brandVehicle %}
+                            <option value="{{ brand.brand }}"> {{ brand.brand|upper }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group col-3" id="colModel" data-route=" ">
+                    <label for="modelVehicule">Modèle</label>
+                    <select class="form-control" id="modelVehicule">
+                        <option disabled selected> Choisir</option>
+                        {% for model in modelVehicle %}
+                            <option value="{{ model.model }}"> {{ model.model|upper }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!--end of col-->
+                <div class="form-group col-auto" id="submitVehicule" data-route="{{ path('home_search_ajax') }}">
+                    <button class="button" id="js-event-search-submit" type="submit">Rechercher</button>
+                </div>
+                <!--end of col-->
+            </div>
+    </div>
+{% endblock %}
