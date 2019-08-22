@@ -1,0 +1,1069 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Condition de Location{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <section>
+            <h1 class="text-center">Condition de Location</h1>
+            <h2>1.DEFINITIONS</h2>
+
+            <p><strong>CONTRAT</strong> : Conditions Générales et Particulières, Conditions d’assistance remise au
+                LOCATAIRE, état descriptif du Véhicule, facture et Dépôt de Garantie.</p>
+
+            <p><strong>LOCATAIRE</strong>&nbsp;: personne au nom de laquelle est établi un Bon de Réservation ou Contrat
+                de Location. Il est aussi le conducteur principal et le payeur. Si le locataire est une personne morale
+                alors le conducteur principal est le signataire du Contrat de Location.</p>
+
+            <p><strong>LOUEUR</strong>&nbsp;: société qui figure sur le Contrat de Location.</p>
+
+            <p><strong>VEHICULE</strong>&nbsp;: véhicule de tourisme ou utilitaire (inférieur à 3,5T) loué pour la durée
+                du Contrat de Location.</p>
+
+            <p><strong>TERRITOIRE</strong>&nbsp;: pays dans lesquels la circulation du Véhicule est autorisée&nbsp;:
+                Allemagne, Autriche, Benelux, Danemark, Espagne, Finlande, France Métropolitaine et Corse, Irlande,
+                Italie, Norvège, Portugal, Royaume-Uni, Suède, Suisse.</p>
+
+            <p><strong>FRANCHISE</strong>&nbsp;: somme non garantie par l’assureur en cas de dommages sans tiers
+                identifié, en l’absence de recours contre un tiers identifié ou de dommage imputable au LOCATAIRE ou de
+                vol. Son montant (indiqué dans les Conditions Particulières de Location) diffère selon la catégorie de
+                Véhicule louée. Dans le cas où le LOCATAIRE serait impliqué dans plusieurs sinistres pendant la durée de
+                la location, chaque sinistre donnera lieu à l’application d’une Franchise selon les modalités définies
+                au Contrat de Location.</p>
+
+            <p><strong>DEPOT DE GARANTIE&nbsp;</strong>: est égal au montant de la franchise. Il est consigné par le
+                LOCATAIRE au profit du LOUEUR sous forme d’une pré-autorisation de paiement, émise par carte bancaire à
+                son nom et prénom (pour les personnes physiques, et les magasins du LOUEUR équipés d’un terminal de
+                paiement), ou au moyen d’un chèque bancaire (pour les personnes morales et pour les magasins du LOUEUR
+                non équipés d’un terminal de paiement). Il garantit la parfaite exécution des obligations mises à la
+                charge du LOCATAIRE.</p>
+
+            <p><strong>DOMMAGE</strong>&nbsp;: tout dégât survenu au Véhicule y compris le bris de glace, incluant les
+                optiques, les rétroviseurs et les phares ou tout dégât occasionné au matériel loué dans le cadre des
+                prestations complémentaires.</p>
+
+            <p><strong>VOL</strong>&nbsp;: désigne le vol proprement dit, le vandalisme, le vol d’accessoires et la
+                tentative de vol.</p>
+
+            <p><strong>RESERVATION&nbsp;</strong>: opération consistant à réserver un Véhicule et qui se matérialise par
+                la signature du Bon de Réservation.&nbsp;</p>
+
+            <p><strong>BON DE RESERVATION</strong>&nbsp;: formulaire signé par le LOCATAIRE confirmant la réservation
+                d’un Véhicule.</p>
+
+            <p>ARRHES&nbsp;: somme versée par le LOCATAIRE lors de la réservation d’un Véhicule, consignée par le
+                LOCATAIRE au profit du LOUEUR sous forme d’une pré-autorisation de paiement, émise par carte bancaire à
+                son nom et prénom (pour les personnes physiques, les magasins du LOUEUR équipés d’un terminal de
+                paiement, les réservations effectuées par téléphone auprès du Service Client Carrefour Location), ou au
+                moyen d’un chèque bancaire (pour les personnes morales et les magasins du LOUEUR non équipés d’un
+                terminal de paiement).</p>
+
+            <p>&nbsp;</p>
+
+            <h2>2.RESERVATION DE VEHICULE</h2>
+
+            <p>Toute demande de réservation de Véhicule est soumise aux présentes Conditions Générales.</p>
+
+            <p><strong>2.1 Modalités de réservation d’un véhicule</strong></p>
+
+            <p>Le LOCATAIRE peut réserver un Véhicule auprès du LOUEUR&nbsp;:</p>
+
+            <p>- dans un magasin proposant le service Carrefour Location sous réserve de la signature d’un Bon de
+                Réservation.</p>
+
+            <p>- par téléphone auprès du Service Client Carrefour Location au <strong>3235 (Service 0,18€ / min + prix
+                    d'appel)&nbsp;</strong>&nbsp;sous réserve de la réception par le Client d’un courriel de
+                confirmation incluant son numéro de réservation ainsi que le détail des informations la concernant.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Par ailleurs, la réservation est effective sous réserve du versement d’Arrhes d’un montant de 50 euros
+                par le Client.</p>
+
+            <p>Il est précisé que le Client peut également réserver en ligne via le site <a contenteditable="false"
+                                                                                            href="http://www.carrefourlocation.fr/"
+                                                                                            is="qowt-hyperlink"
+                                                                                            target="_blank">www.carrefourlocation.fr</a>
+                dans le respect des dispositions figurant aux Conditions Générales de Réservation en ligne disponible
+                sur le site www.carrefourlocation.fr.</p>
+
+            <p>&nbsp;</p>
+
+            <p><strong>2.2 Modification et annulation de la réservation</strong></p>
+
+            <p>Pour modifier ou annuler sa réservation, le LOCATAIRE doit obligatoirement se rendre dans le magasin du
+                LOUEUR, auprès duquel il a effectué sa réservation.</p>
+
+            <p>Dans l’hypothèse où le LOCATAIRE sollicite la modification ou l’annulation de sa réservation en
+                respectant un délai minimum de prévenance de 72 heures avant la date de prise de possession prévue du
+                Véhicule lors de sa réservation&nbsp;: les Arrhes versées par le LOCATAIRE lui sont restituées (si le
+                LOUEUR ne peut satisfaire à la demande de modification du LOCATAIRE). La restitution des Arrhes
+                s’effectue dans un délai maximum de 10 jours sous forme de l’annulation de la pré-autorisation donnée
+                par carte bancaire lors de la réservation ou de la remise du chèque.</p>
+
+            <p>Dans l’hypothèse où la demande de modification ou l’annulation intervient moins de 72 heures avant la
+                date de prise de possession prévue du Véhicule, sauf cas de force majeure telle que définie par les
+                tribunaux Français, les Arrhes sont conservées par le LOUEUR qui procédera à leur prélèvement sur le
+                compte bancaire du LOCATAIRE ou a l’encaissement du chèque.</p>
+
+            <p>Si exceptionnellement le LOUEUR ne peut pas honorer le jour prévu de la prise de Véhicule sur le bon de
+                réservation, le LOCATAIRE sera contacté par le LOUEUR par téléphone, pour annuler ou convenir avec le
+                LOCATAIRE des modifications de la réservation. Si aucune solution de remplacement n'est trouvée, le
+                LOUEUR s'engage à rembourser dans un délai maximum de 10 jours le double des Arrhes (restitution des
+                arrhes versés + dédommagement d’un montant égal au montant des Arrhes) versées par le LOCATAIRE lors de
+                sa réservation.<br/>
+                &nbsp;</p>
+
+            <h2>3.CONDITIONS POUR LA LOCATION</h2>
+
+            <p>Le LOCATAIRE doit être âgé de plus de vingt et un (21) ans et être titulaire du permis de conduire B
+                depuis plus de trois (3) ans.</p>
+
+            <p>Le LOCATAIRE doit fournir au LOUEUR, lors de la signature des Conditions Particulières&nbsp;:</p>
+
+            <p>- pour les personnes physiques&nbsp;: pièce d’identité, permis de conduire valable en France
+                Métropolitaine (aucune photocopie ne sera acceptée), justificatif de domicile en France de moins de 3
+                mois, Dépôt de Garantie dont la forme dépend du ou des moyen(s) de paiement accepté(s) par le magasin&nbsp;;</p>
+
+            <p>- pour les personnes morales&nbsp;: bon de commande établi par la société signé par le représentant légal
+                autorisant le(s) conducteur(s) désigné(s) à louer le Véhicule au nom de la société, extrait K-Bis de la
+                société de moins de 3 mois, permis de conduire des conducteur(s) désignés par la société valable en
+                France Métropolitaine (aucune photocopie ne sera acceptée), Dépôt de Garantie dont la forme dépend du ou
+                des moyen(s) de paiement accepté(s) par le magasin.</p>
+
+            <p>&nbsp;Le LOCATAIRE pourra demander au LOUEUR d’ajouter un second conducteur sous réserve que celui-ci
+                présente une pièce d’identité et un permis de conduire valable en</p>
+
+            <p>France Métropolitaine de plus de 3 ans.</p>
+
+            <p>&nbsp;</p>
+
+            <h2>4.ETAT DU VÉHICULE – UTILISATION- RESTITUTION</h2>
+
+            <p><strong>4.1. </strong>Le LOCATAIRE reconnaît que le Véhicule a été mis à sa disposition en bon état
+                apparent de carrosserie avec ses accessoires d'origine, à l'exception des dommages éventuels reportés
+                dans la partie «&nbsp;Etat descriptif du Véhicule&nbsp;» au départ du Contrat.</p>
+
+            <p>Au moment de la remise du Véhicule, le LOCATAIRE est tenu de vérifier l’état du Véhicule ainsi que les
+                indications précisées dans la partie « Etat descriptif du Véhicule » et de signaler au LOUEUR toutes
+                éventuelles différences constatées. Les corrections nécessaires seront alors apportées au Contrat. A
+                défaut, le LOUEUR est réputé avoir délivré le Véhicule conformément à l’« Etat descriptif du Véhicule »
+                et aucune réclamation relative à un dommage et/ou une erreur non signalés ne pourra être prise en
+                compte.</p>
+
+            <p><strong>&nbsp;4.2. </strong>Le LOCATAIRE a la garde du Véhicule, conformément aux dispositions de
+                l'article 1242 alinéa I du Code Civil et doit par conséquent en assurer raisonnablement l’usage, la
+                direction et le contrôle.</p>
+
+            <p>Il s’engage, sauf pour des raisons légitimes étant bien entendu que dans cette hypothèse le LOCATAIRE
+                reste pleinement responsable envers le LOUEUR de tous les dommages qui pourraient être occasionnés de ce
+                fait au Véhicule, à ne pas laisser conduire celui-ci par d'autres personnes que celles agréées par le
+                LOUEUR et remplissant les conditions définies au Contrat. En dehors des périodes de conduite, le
+                LOCATAIRE s'engage à fermer le Véhicule à clé, à ne pas laisser la carte grise à l’intérieur du Véhicule
+                et à verrouiller l'antivol. Le LOCATAIRE ne doit jamais laisser le Véhicule inoccupé avec les clés sur
+                le contact. L'absence de restitution des clés entraînera la déchéance de la garantie vol.</p>
+
+            <p>&nbsp;Conformément au principe de personnalité des peines, le LOCATAIRE est responsable des infractions
+                commises pendant la durée de location. Ainsi, le LOCATAIRE est informé que ses coordonnées pourront être
+                communiquées aux autorités de police qui en feraient la demande.</p>
+
+            <p>&nbsp;Le LOCATAIRE s’engage à utiliser avec prudence le Véhicule sur le Territoire conformément à sa
+                destination, ce qui, pour un Véhicule utilitaire, est principalement celle du transport de marchandises
+                et à respecter le Code de la route et les autres réglementations applicables à la conduite et à
+                l’utilisation des véhicules automobiles.</p>
+
+            <p>&nbsp;Le Véhicule ne doit, notamment, pas être utilisé dans les cas suivants&nbsp;:</p>
+
+            <ul>
+                <li>en dehors des voies carrossables ou dont la surface ou l’état d’entretien présente des risques pour
+                    les pneus ou les organes sous le Véhicule&nbsp;;
+                </li>
+                <li>en surcharge (charge supérieure à celle autorisée sur la carte grise), pour le transport d’un nombre
+                    de personnes supérieur à celui mentionné sur la carte grise du Véhicule&nbsp;; pour un transport de
+                    personnes ou de marchandises à titre onéreux&nbsp;;
+                </li>
+                <li>pour les compétitions automobiles ou rallyes ainsi que pour leurs essais, &nbsp;pour pousser ou
+                    tirer un autre Véhicule, ou une remorque&nbsp;;
+                </li>
+                <li>pour l'apprentissage de la conduite&nbsp;;</li>
+                <li>pour effectuer une sous-location dans le but de réaliser des prestations de services à titre
+                    onéreux
+                </li>
+                <li>pour le transport d’un nombre de personnes supérieur à celui mentionné sur la carte grise du
+                    Véhicule&nbsp;;
+                </li>
+                <li>pour des activités de transports de marchandises, de voyageurs ou de matières dangereuses, même à
+                    titre occasionnel.
+                </li>
+                <li>pour le transport d’animaux, de matières inflammables, explosives, corrosives, comburantes,
+                    radioactives ou sources de rayonnements ionisants&nbsp;;
+                </li>
+                <li>pour commettre une infraction intentionnelle.</li>
+            </ul>
+
+            <p><strong>&nbsp;</strong></p>
+
+            <p><strong>ATTENTION&nbsp;: Les dimensions des Véhicules utilitaires obligent à une attention accrue lors de
+                    certaines manœuvres (marche arrière par exemple) et peuvent rendre impossible le franchissement de
+                    certaines infrastructures routières (tunnels, ponts, etc.), dont la hauteur maximum est, suivant la
+                    réglementation en vigueur, signalée en avance.</strong></p>
+
+            <p>&nbsp;</p>
+
+            <p>&nbsp;Les marchandises et bagages transportés dans le Véhicule, y compris leur emballage ou leur
+                arrimage, ne doivent ni détériorer le Véhicule, ni faire courir de risques anormaux à ses occupants. Il
+                est rappelé que les marchandises transportées ne sont pas assurées. Le LOUEUR ne peut être tenu
+                responsable d’une quelconque détérioration des marchandises transportées.</p>
+
+            <p>&nbsp;Au cours de la location et en fonction du nombre de kilomètres parcourus, le LOCATAIRE doit
+                effectuer les contrôles d'usage (niveau de lave-glace, pression des pneus, etc.), conformément à un
+                usage raisonnable. A ce titre, le LOCATAIRE reste vigilant à tout signal émis par les voyants d'alerte
+                apparaissant sur le tableau de bord du Véhicule et prend toutes les mesures conservatoires nécessaires,
+                le cas échéant, telles que l'arrêt d'urgence.</p>
+
+            <p> &nbsp;Le Véhicule est fourni avec quatre pneumatiques et une roue de secours ou un kit anti-crevaison,
+                en fonction du modèle loué, dont l'état est conforme à la réglementation routière. En cas de
+                détérioration de l'un d'entre eux pour une cause autre que l'usure normale, vice caché ou cas de force
+                majeure, le LOCATAIRE s’engage à le signaler immédiatement au LOUEUR afin que ce dernier puisse prendre
+                les mesures nécessaires (remplacement ou réparation). Les frais de remplacement ou de réparation sont à
+                la charge du LOCATAIRE. En cas de panne mécanique ou d'accident, le LOCATAIRE bénéficie d'un service
+                assistance, inclus dans le prix de la location (cf. Conditions d’Assistance disponibles dans le Véhicule
+                - <strong>Numéro de l’Assistance 24h/24&nbsp;: 04.72.43.69.24</strong>).</p>
+
+            <p><strong>&nbsp;4.3. </strong>Le Véhicule doit être restitué dans le même état de marche et de carrosserie
+                que lors de sa mise à disposition, avec les pneumatiques et la roue de secours ou le kit anti-crevaison
+                en bon état. A défaut, les éventuels frais de remise en état du Véhicule seront mis à la charge du
+                LOCATAIRE. Par ailleurs, le LOUEUR peut notamment être amené à facturer au LOCATAIRE les frais suivants
+                (montants TTC)&nbsp;: Perte de clés 450 €, Radio hors service 400 €, Roue de secours ou kit
+                anti-crevaison absent 400 €, Triangle ou gilet absent 30 € l'unité,&nbsp; Nettoyage extérieur (si
+                anormalement sale) 50 € Nettoyage intérieur (si anormalement sale) 50 €. A cette fin, lors de la
+                restitution du Véhicule, la fiche «&nbsp;Etat descriptif du véhicule&nbsp;» au retour sera complétée
+                avant d’être signée par le LOCATAIRE. Le LOCATAIRE accepte et reconnaît le caractère contradictoire de
+                la fiche «&nbsp;Etat descriptif du véhicule&nbsp;» au départ et au retour. Le Véhicule est loué avec le
+                plein de carburant. Les tarifs n’incluant pas le carburant, si le Véhicule n’est pas restitué avec le
+                plein, le LOCATAIRE devra payer le complément manquant, au prix forfaitaire de 2 euros le litre quelque
+                soit le type de carburant.</p>
+
+            <p><strong>&nbsp;ATTENTION&nbsp;: </strong>Dans l’hypothèse où le LOCATAIRE refuse de signer la fiche «Etat
+                descriptif» au retour du Véhicule, le LOCATAIRE accepte que le LOUEUR se réserve la possibilité d’avoir
+                recours à un expert automobile indépendant du LOUEUR pour établir l’Etat descriptif retour, et que le
+                coût de cet intervenant lui soit facturé.</p>
+
+            <p>&nbsp;</p>
+
+            <h2>5.Durée de la location</h2>
+
+            <p>La durée du Contrat est prévue aux Conditions Particulières. Elle se calcule en fonction des forfaits
+                proposés par le LOUEUR&nbsp;: par tranche de 2 heures (forfaits proposés dans les hypermarchés CARREFOUR
+                et supermarchés CARREFOUR MARKET, sous réserve d’achat de produits non alimentaires volumineux du type
+                salon de jardin ou électromenager pour un montant supérieur ou égal à 149 euros), de 4 heures pour les
+                forfaits ½ journée et d’au minimum 8 heures pour les forfaits à la journée (selon les horaires
+                d’ouverture du service en magasin), non fractionnable, depuis l'heure de mise à disposition du Véhicule,
+                sauf mention spécifique indiquée aux Conditions Particulières. La durée du Contrat est de trente (30)
+                jours maximum.</p>
+
+            <p>Le LOCATAIRE s'engage à restituer le Véhicule au loueur exclusivement au magasin où il a été loué,
+                pendant les heures d’ouverture, à la date indiquée aux Conditions Particulières. A défaut de
+                restitution, le LOCATAIRE s'expose à des poursuites judiciaires civiles et pénales. <strong>L’abandon du
+                    Véhicule sur le parking du LOUEUR est strictement interdit et constitue une faute du
+                    LOCATAIRE.</strong></p>
+
+            <p>La location se termine par la restitution du Véhicule, de ses clés et de ses papiers, et par le contrôle
+                du Véhicule avec une personne habilitée par le loueur (accueil ou service après-vente du LOUEUR, selon
+                les magasins). En aucun cas le LOCATAIRE ne restituera les clés à des personnes présentes sur le parking
+                du LOUEUR et prétendant être agent du LOUEUR.</p>
+
+            <p>Dans l'hypothèse où le Véhicule serait restitué sans ses clés, celles-ci seront facturées au LOCATAIRE,
+                de même que les frais relatifs au changement de serrures du Véhicule ainsi que, s'il y a lieu, les frais
+                de rapatriement du Véhicule.</p>
+
+            <p>Le loueur ne peut en aucune façon être tenu responsable des biens qui auraient été oubliés dans les
+                Véhicules à l'issue de la location.</p>
+
+            <p>Si le LOCATAIRE souhaite conserver le Véhicule au-delà de la durée prévue au Contrat de Location, il lui
+                appartient d’obtenir l’accord écrit et préalable du LOUEUR et de procéder à la signature d’un nouveau
+                Contrat, sous peine de s’exposer à des poursuites judiciaires pour détournement de Véhicule et abus de
+                confiance. En l’absence d’accord écrit et préalable pour une éventuelle prorogation, le LOUEUR se
+                réserve le droit de reprendre le Véhicule en quelque lieu qu’il se trouve et aux frais du LOCATAIRE, en
+                cas de faute de ce dernier. La faute du LOCATAIRE pouvant notamment consister en une mauvaise
+                appréciation de sa part de la durée de la location par rapport au trajet à réaliser.</p>
+
+            <p><strong>ATTENTION : Seule la restitution du Véhicule, des documents et des clés par le LOCATAIRE à
+                    l’accueil ou au service après-vente du LOUEUR, aux heures d'ouverture du magasin concerné, permet de
+                    mettre fin au Contrat. La responsabilité du LOCATAIRE étant engagée jusqu’à la fin ou la résiliation
+                    du Contrat.</strong></p>
+
+            <p><strong>EXCEPTIONS :</strong> en cas de confiscation ou de mise sous scellés du Véhicule, le Contrat
+                pourra être résilié de plein droit dès que le loueur en sera informé par les autorités judiciaires ou
+                par le locataire.</p>
+
+            <p>Toute utilisation du Véhicule qui porterait préjudice au loueur autoriserait celui-ci à résilier de plein
+                droit le Contrat de Location.</p>
+
+            <p>En cas de vol, le Contrat est arrêté dès transmission au loueur, du dépôt de plainte effectué par le
+                locataire auprès des autorités compétentes.</p>
+
+            <p>En cas d'accident, le Contrat est arrêté dès transmission au loueur, du constat amiable dûment rempli par
+                le locataire et le tiers éventuel.</p>
+
+            <p>&nbsp;</p>
+
+            <h2>6.PRIX &amp; PAIEMENT DE LA LOCATION</h2>
+
+            <p>&nbsp;Les tarifs indiqués sont valables en France Métropolitaine, en fonction de la disponibilité des
+                Véhicules. Le paiement de la location peut être effectué par carte de crédit, chèque ou espèces selon
+                les moyens de paiement acceptés et précisés comme</p>
+
+            <p>tels en magasins.</p>
+
+            <p>Les tarifs sont établis sur la base de forfaits. Les forfaits sont fonction de la catégorie de véhicule
+                réservée et de la durée de la location. Les forfaits comprennent un nombre de kilomètres inclus dans le
+                prix. Les kilomètres supplémentaires parcourus par rapport à ceux prévus au forfait font l’objet d’une
+                facturation supplémentaire au retour de la location. Les kilomètres inclus dans le forfait mais non
+                parcourus au retour de la location ne font pas l’objet d’un remboursement ou d’une réduction de
+                prix.</p>
+
+            <p>&nbsp;</p>
+
+            <p>&nbsp;<strong>6.1. Le LOCATAIRE s'engage à acquitter&nbsp;:</strong></p>
+
+            <ul>
+                <li>Un montant kilométrique calculé au taux en vigueur dans la catégorie de tarif appliqué par le
+                    LOUEUR. S’il peut être démontré que le compteur a été débranché par le LOCATAIRE, un forfait de
+                    1.000 km par jour de location sera facturé, sans préjudice des poursuites judiciaires encourues par
+                    le LOCATAIRE. En cas de non respect des limites horaires convenues par les Parties et figurant aux
+                    Conditions Particulières, pour des raisons dépendant du fait du LOCATAIRE, le forfait «&nbsp;jour
+                    supplémentaire&nbsp;» s’appliquera.
+                </li>
+                <li>le coût des prestations complémentaires optionnelles mentionnées au Contrat ;</li>
+                <li>les taxes sur les paiements stipulés dans le Contrat et notamment les paiements susvisés.</li>
+            </ul>
+
+            <p>Le LOCATAIRE effectue lors de la signature du Contrat et de la prise du Véhicule, le paiement du montant
+                de la location tel que figurant aux Conditions Particulières.</p>
+
+            <p>&nbsp;<strong>6.2.</strong> Ce montant est, le cas échéant, complété, lors de la restitution du Véhicule,
+                des sommes dont le LOCATAIRE peut s’avérer redevable envers le LOUEUR, au titre du Contrat, à savoir&nbsp;:
+            </p>
+
+            <ul>
+                <li>le carburant, et notamment, le complément manquant si le Véhicule n’est pas restitué avec le plein&nbsp;;</li>
+                <li>tous les frais résultant d'une infraction au Code de la Route (notamment la mise en fourrière) ou
+                    aux dispositions du Code des Assurances, commise par le LOCATAIRE ou dues à son propre fait&nbsp;;
+                </li>
+                <li>une indemnité égale au préjudice effectivement subi par le LOUEUR, en cas de vol du Véhicule ou de
+                    dommage causé à celui-ci, à la suite d'une utilisation contraire à celle définie au Contrat de
+                    Location. Cette indemnité est limitée au montant de la Franchise, en cas de vol ou de dommage
+                    imputable au LOCATAIRE ou de l’absence de faute d’un tiers identifié (montant dû estimé par devis
+                    d’expert effectué notamment au moyen de la télé-expertise, en fonction du coût prévisible des
+                    réparations le cas échéant, ou valeur vénale du Véhicule, frais d’immobilisation, frais
+                    rapatriement….). L’indemnité est due par le simple chiffrage des dommages, sans que le LOUEUR n’ait
+                    à présenter de factures de réparation&nbsp;;
+                </li>
+                <li>le coût des frais divers mentionnés au Contrat de Location et les taxes sur les paiements
+                    susvisés.
+                </li>
+            </ul>
+
+            <p><strong>&nbsp;6.3.</strong> Dans tous les cas, il est demandé au LOCATAIRE, lors de la mise à disposition
+                du Véhicule d’effectuer un Dépôt de Garantie dont le montant est défini dans les Conditions
+                Particulières. Le Dépôt de Garantie, sous réserve de la parfaite exécution des obligations mises à la
+                charge du LOCATAIRE au titre du Contrat de Location, lui est restitué lors de la remise du Véhicule au
+                LOUEUR. Le LOUEUR peut cependant déduire du Dépôt de Garantie à restituer au LOCATAIRE, en cas de refus
+                par celui-ci de s’en acquitter&nbsp;: les sommes qui lui seraient dues pour prolongation de la durée
+                initiale de location et/ou de dépassement du kilométrage prévu, les éventuels frais relatifs aux
+                dommages causés au Véhicule ou au matériel proposé à la location dans le cadre des prestations
+                complémentaires et correspondant, le cas échéant, à sa remise en état, le vol, sans préjudice des
+                éventuelles actions judiciaires que le LOUEUR pourrait engager à l’encontre du LOCATAIRE afin d’obtenir
+                le recouvrement de sa créance ainsi que le versement d’éventuels dommages et intérêts. De convention
+                expresse entre les Parties, le Dépôt de Garantie est attribué au LOUEUR en toute propriété, à
+                concurrence des sommes dues par le LOCATAIRE au titre du Contrat de Location. Le LOCATAIRE autorise
+                expressément le LOUEUR à prélever le montant des sommes dues sur ce Dépôt de Garantie sur son compte
+                bancaire au moyen de la pré-autorisation bancaire ou du chèque de Dépôt de Garantie. Sous réserve de la
+                parfaite exécution des obligations mises à la charge du LOCATAIRE au titre du Contrat de Location et en
+                l’absence de dommage ou de vol, le montant du Dépôt de Garantie est restitué par le LOUEUR au LOCATAIRE
+                après signature de la fiche&nbsp; «Etat descriptif&nbsp;» au retour du Véhicule.</p>
+
+            <p>&nbsp;</p>
+
+            <p><strong>7.PRESTATIONS COMPLEMENTAIRES</strong></p>
+
+            <p>&nbsp;Le LOUEUR propose dans certains de ses magasins au LOCATAIRE une gamme de prestations
+                complémentaires à la location de Véhicule. Le LOCATAIRE doit indiquer le cas échéant au LOUEUR,
+                préalablement à la signature du Contrat, les prestations complémentaires choisies.</p>
+
+            <p>&nbsp;Tarifs de location des prestations complémentaires&nbsp;:</p>
+
+            <table border="1" cellpadding="1" cellspacing="1" style="width: 500px;">
+                <tbody>
+                <tr>
+                    <td><strong>Matériels</strong></td>
+                    <td><strong>Prix TTC*</strong></td>
+                    <td><strong>Durée</strong></td>
+                </tr>
+                <tr>
+                    <td>Diable pliable 125 kg</td>
+                    <td>6 € l’unité</td>
+                    <td>1 journée</td>
+                </tr>
+                <tr>
+                    <td>Chariot rabattable 200 kg</td>
+                    <td>6 € l’unité</td>
+                    <td>1 journée</td>
+                </tr>
+                <tr>
+                    <td>Couverture déménagement</td>
+                    <td>1 € l’unité</td>
+                    <td>1 journée</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p>* Tarifs modifiables sans préavis / Tarifs maximum conseillés en magasin&nbsp;</p>
+
+            <p>&nbsp;</p>
+
+            <p>&nbsp;Le LOUEUR pourra être amené à facturer au LOCATAIRE les frais suivants en cas de détérioration du
+                matériel (montants TTC): Diable pliable 180 €, Chariot rabattable 150 €, Couverture de déménagement 30€.
+                Par ailleurs, dans l’hypothèse où le LOCATAIRE ne restitue pas le matériel à la date prévue aux
+                Conditions Particulières, il est redevable vis-à-vis du LOUEUR, pour chaque journée supplémentaire, du
+                prix de la location du matériel (toute journée commencée étant due).</p>
+
+            <p>&nbsp;Le LOUEUR propose également au LOCATAIRE des accessoires &nbsp;(cartons, rouleaux bulles, adhésifs
+                etc) à l’achat.&nbsp;Ces accessoires sont facturés par le LOUEUR au LOCATAIRE au tarif en vigueur
+                affiché en magasin.</p>
+
+            <p>&nbsp;</p>
+
+            <h2>8.ASSURANCES</h2>
+
+            <p><strong>&nbsp;Les garanties accordées au LOCATAIRE ne peuvent en aucun cas excéder les garanties
+                    accordées au LOUEUR par l’ASSUREUR dont le nom figure sur l’attestation d’assurance et la carte
+                    verte du Véhicule.</strong></p>
+
+            <p><strong>&nbsp;Le Véhicule n’est assuré que pour la durée de location indiquée sur le Contrat de Location.
+                    Au-delà de cette durée et sans prorogation de celle-ci acceptée préalablement et par écrit par le
+                    LOUEUR, ce dernier décline toute responsabilité pour les sinistres que le LOCATAIRE causerait et
+                    dont il devrait faire son affaire personnelle.</strong></p>
+
+            <p><strong>&nbsp;8.1 Assurance de responsabilité civile</strong></p>
+
+            <p>Le Véhicule loué est assuré pour les dommages corporels et matériels que le LOCATAIRE pourrait causer aux
+                tiers à la suite d’un accident impliquant le Véhicule loué, en vue de satisfaire à l’obligation
+                d’assurance prescrite par l’article L.211-1 du Code des Assurances.</p>
+
+            <p>&nbsp;Dès lors que le LOCATAIRE respecte les Conditions Générales de location, notamment celles visées à
+                l’article 4 ci-avant, l’ASSUREUR accorde une garantie sans limitation de somme pour les dommages
+                corporels et à hauteur de 100.000.000 € par sinistre pour les dommages matériels et immatériels
+                résultant d’accident&nbsp;.</p>
+
+            <p>&nbsp;<strong>Si la responsabilité du LOCATAIRE (ou du conducteur du Véhicule loué) est engagée alors que
+                    les Conditions Générales ne sont pas respectées, l’ASSUREUR se réserve le droit d’exercer un recours
+                    en son nom et au nom du LOUEUR contre le LOCATAIRE (ou le conducteur du véhicule loué).</strong></p>
+
+            <p>&nbsp;En cas de sinistre, le LOCATAIRE doit en informer le LOUEUR le plus rapidement possible et en tout
+                état de cause dans un délai permettant au LOUEUR de le déclarer à l’ASSUREUR dans les 5 jours de sa
+                survenance.</p>
+
+            <p>Dans le cas d’un accident de collision avec un tiers, la déclaration sera accompagnée du constat amiable
+                d’accident automobile, lequel doit être dûment rempli et signé par les Parties. En cas de mauvaise
+                rédaction ou de rédaction incomplète du constat amiable empêchant tout recours de l’ASSUREUR à
+                l’encontre du tiers responsable, le LOUEUR pourra se retourner contre le LOCATAIRE (ou le conducteur du
+                véhicule loué) dans la limite de la franchise prévue au Conditions Particulières.</p>
+
+            <p><strong>8.2 Assurance incendie et vol subis par le véhicule loue</strong></p>
+
+            <p>En cas d’incendie ou de vol du Véhicule loué et dès lors que le LOCATAIRE a respecté les Conditions
+                Générales de Location, notamment celles visées à l’article 4 ci-avant, la responsabilité du LOCATAIRE
+                est limitée au montant de la Franchise dommage indiquée aux Conditions Particulières figurant au recto
+                des présentes Conditions Générales. Cette Franchise est doublée en cas de vol du Véhicule loué.</p>
+
+            <p>Cette Franchise sera remboursée au LOCATAIRE si un recours exercé à l’encontre d’un éventuel tiers
+                responsable aboutit (s’il aboutit partiellement, la Franchise sera remboursée dans la proportion de
+                responsabilité du tiers responsable partiel).</p>
+
+            <p>En cas d’incendie ou de vol du véhiculé Loué, le LOCATAIRE doit en informer le LOUEUR le plus rapidement
+                possible et en tout état de cause dans un délai permettant au LOUEUR de le déclarer à l’ASSUREUR dans
+                les 48 heures de sa survenance. Dans tous les cas, la carte grise et les clés du Véhicule loué devront
+                être restituées au LOUEUR. A défaut, le LOCATAIRE (sauf s’il justifie d’un cas de force majeure) devra
+                indemniser le LOUEUR de son préjudice lié à la perte des clés et des papiers.</p>
+
+            <p>&nbsp;En cas de vol,&nbsp;le LOCATAIRE doit, préalablement à la déclaration au LOUEUR, déclarer le vol
+                aux forces de l’ordre. Le récépissé du dépôt de plainte pour vol sera restitué au LOUEUR lors de la
+                déclaration de sinistre.</p>
+
+            <p><strong>Les objets transportés dans le Véhicule ne peuvent donner lieu à indemnisation.</strong></p>
+
+            <p><strong>&nbsp;8.3 Assurance dommages accidentels au véhicule</strong></p>
+
+            <p>En cas de dommages causés au Véhicule loué et dès lors que le LOCATAIRE respecte les Conditions Générales
+                de Location, notamment celles visées à l’article 4 ci-avant, la responsabilité du LOCATAIRE est limitée
+                au montant de la Franchise dommages indiquée aux Conditions Particulières du Contrat de Location.</p>
+
+            <p>&nbsp;Cette franchise sera remboursée au LOCATAIRE si un recours exercé à l’encontre d’un éventuel tiers
+                responsable aboutit (s’il aboutit partiellement, la franchise sera remboursée dans la proportion de
+                responsabilité du tiers responsable partiel).</p>
+
+            <p>&nbsp;Dès la survenance d’un dommage, le LOCATAIRE doit en informer le LOUEUR le plus rapidement possible
+                et en tout état de cause dans un délai permettant au LOUEUR de le déclarer à l’ASSUREUR dans les 5 jours
+                de sa survenance. Cette déclaration doit</p>
+
+            <p>comporter les circonstances, la date, l’heure et le lieu de sinistre, la nature des dommages et
+                l’identification des Véhicules en cause, les noms et adresses des conducteurs et des témoins, les
+                coordonnées de la compagnie d’assurance et des numéros de police. Un constat amiable dûment complété
+                peut servir de document de déclaration. Si un rapport de Police ou de Gendarmerie a été établi, il doit
+                être communiqué au LOUEUR lors de la déclaration.</p>
+
+            <p>&nbsp;En cas de mauvaise rédaction ou de rédaction incomplète du constat amiable empêchant tout recours
+                de l’ASSUREUR à l’encontre du tiers responsable, le LOUEUR pourra se retourner contre le LOCATAIRE (ou
+                le conducteur du Véhicule loué) dans la limite de la Franchise prévue au Contrat de Location.</p>
+
+            <p><strong>&nbsp;8.4 Assurance optionnelle «&nbsp;Rachat de franchise partiel&nbsp;» (proposée par certains
+                    magasins, renseignez vous)</strong></p>
+
+            <p>Dans le cadre du Contrat de Location, le LOUEUR peut proposer au LOCATAIRE une assurance optionnelle «&nbsp;Rachat
+                de Franchise partielle&nbsp;». La souscription de cette garantie lors de la signature du Contrat permet
+                au LOCATAIRE de diminuer le montant de la Franchise restant à sa charge en cas de Dommages Accidentels
+                pour lequel le Conducteur est déclaré responsable ou en cas de Tiers non identifié causés au Véhicule.
+                Les conditions générales valant notice d’information seront remises au LOCATAIRE. Le LOCATAIRE qui
+                souscrit à cette garantie reconnait avoir pris connaissance et accepté ces conditions générales.</p>
+
+            <p>Si le magasin ne propose pas cette assurance optionnelle, le LOCATAIRE qui souhaite en bénéficier est
+                tenu d’effectuer, lui-même, les démarches nécessaires auprès de la compagnie d’assurance de son
+                choix.</p>
+
+            <p><strong>8.5 Garantie du conducteur agréé par le loueur</strong></p>
+
+            <p>Dès lors que le LOCATAIRE respecte les Conditions Générales de location, notamment celles visées à
+                l’article 4 ci-avant, l’ASSUREUR intervient pour le préjudice corporel du conducteur agréé suite à
+                sinistre mettant en jeu l’une des garanties ci-dessus.</p>
+
+            <p>&nbsp;Cette garantie s’applique&nbsp;:</p>
+
+            <p>-&nbsp;&nbsp; en cas de décès<strong> (dans la limite de 200.000 €)</strong>&nbsp;;</p>
+
+            <p>-&nbsp;&nbsp; en cas de blessure<strong> (dans la limite de 200.000 €)</strong>.<br/>
+                &nbsp;</p>
+
+            <p><strong>9.DECHEANCE – RESPONSABILITE DU LOCATAIRE – EXCLUSIONS</strong></p>
+
+            <p><strong>&nbsp;&nbsp;Toute conduite du Véhicule loué sous l’emprise d’un état alcoolique ou usage de
+                    stupéfiant entraîne pour le LOCATAIRE ou le conducteur agréé la déchéance des garanties prévues aux
+                    8-2 et 8-3 ci-dessus.</strong></p>
+
+            <p>&nbsp;&nbsp;Si le conducteur ne respecte pas les Conditions Générales de Location, notamment celles
+                visées à l’article 4 ci-avant, la responsabilité du LOCATAIRE n’est plus limitée au montant des
+                Franchises prévues aux Conditions Particulières figurant au recto des présentes Conditions Générales. Le
+                LOCATAIRE sera donc tenu d’indemniser l’entier préjudice au LOUEUR, selon les règles du droit
+                commun.</p>
+
+            <p><strong>&nbsp;&nbsp;Ne sont pas garantis&nbsp;:</strong></p>
+
+            <ul>
+                <li><strong>les dommages survenus lorsque le Véhicule transporte des animaux, des matières inflammables,
+                        explosives, corrosives, ou comburantes&nbsp;ainsi que ceux ayant une origine
+                        nucléaire&nbsp;;</strong></li>
+                <li><strong>les dommages survenus lorsque le Véhicule participe à des épreuves de course, compétition et
+                        leurs essais&nbsp;;</strong></li>
+                <li><strong>les dommages occasionnés par la guerre civile ou étrangère, ainsi que la participation du
+                        LOCATAIRE à des émeutes, actes de terrorisme ou mouvements populaires&nbsp;;&nbsp;</strong></li>
+                <li><strong>les dommages causés intentionnellement.</strong><br/>
+                    &nbsp;
+                </li>
+            </ul>
+
+            <h2><strong>10.Protection des données personnelles</strong></h2>
+
+            <p>&nbsp;</p>
+
+            <p><strong>10.1 Qui traite vos données&nbsp;?</strong></p>
+
+            <p>Les données personnelles du Client collectées via l’utilisation par le Client du Site Portail (voire
+                l’application mobile s’il y a lieu) et la fourniture des Services de Carrefour Location par les
+                Magasins, y compris franchisés, sont traitées par Carrefour Hypermarchés - SAS au capital de 6 922 200
+                dont le siège social est à Evry (91002), immatriculée au RCS d’Evry sous le numéro 451 321 335.</p>
+
+            <p>Pour rappel, le Site Portail permet aux Client d’effectuer des réservations de location de véhicules ou
+                d’autres services proposés par Carrefour Location, auprès des Magasins (cf/ les références de ces
+                Magasins sur les Espaces Réservés) qui assurent la fourniture des Services Carrefour Location. Pour
+                rappel ces Magasins sous enseignes Carrefour, Carrefour Market voire des enseignes de la proximité du
+                groupe Carrefour, qui ont souhaité proposer le Service Carrefour Location peuvent être des magasins
+                intégrés (c'est-à-dire des filiales du groupe Carrefour) ou des franchisés (c'est-à-dire des magasins
+                qui sont exploités par des commerçants indépendants, sous l’une des enseignes du groupe Carrefour).</p>
+
+            <p><br/>
+                <strong>10.2 Pour quelles finalités collectons-nous et traitons-nous vos données&nbsp;?</strong></p>
+
+            <p>En premier lieu, elles sont utilisées pour les besoins la gestion de la relation clients (tel que la
+                gestion de vos réservations) et pour nous permettre de mieux interagir avec nos &nbsp;</p>
+
+            <p>clients, d’optimiser l’expérience utilisateur ou encore de répondre aux demandes et éventuelles
+                réclamations de nos clients.</p>
+
+            <p>Ces traitements incluent notamment&nbsp;:</p>
+
+            <ul>
+                <li>la possibilité de créer un compte,</li>
+                <li>la gestion de vos consentements et autorisations (lorsque cela est nécessaire pour le traitement
+                    envisagé) concernant l’utilisation de vos données personnelles en particulier pour l’envoi des
+                    newsletters et des sollicitations commerciales par voie électronique,
+                </li>
+                <li>la gestion de vos réservations à savoir enregistrer et gérer les réservations de location de
+                    véhicules de nos clients ou de tous autres des Services proposés par Carrefour Location, de les
+                    compléter et transmettre les informations nécessaires à cet effet au Magasin et à tout tiers
+                    intervenant dans la fourniture des Services. Ces traitements inclus également la gestion de la
+                    conclusion du contrat et son exécution, la facturation et le paiement des Services.
+                </li>
+                <li>le traitement des éventuels sinistres et indemnisation,</li>
+                <li>plus globalement, tout traitement permettant à nos clients de bénéficier des services Carrefour
+                    Location, procéder à des réservations, conclure le contrat de location, disposer des informations
+                    relatives à la réservation et au contrat et à leur facturation, s’inscrire aux newsletters, etc..
+                </li>
+                <li>la gestion des communications et le suivi des échanges avec nos clients pour le besoins des services
+                    proposés et notamment dans le cadre d’éventuels litiges&nbsp; (notamment via le service client
+                    accessible par exemple par téléphone, par messagerie instantanée de type tchat. Ces échanges peuvent
+                    être enregistrées à des fins d’amélioration du service),
+                </li>
+                <li>le traitement nécessaire à la reconnaissance de votre qualité de client fidélité, dès lors que cette
+                    information pourrait vous être demandée et dans le cas où vous auriez souhaité l’indiquer à
+                    Carrefour Location. Etant ici rappelé que l’utilisation de vos données personnelles par le programme
+                    de fidélité font l’objet de conditions d’utilisation spécifiques au programme de fidélité, qui vous
+                    sont par ailleurs soumises.
+                </li>
+                <li>le recueil des commentaires et avis de nos clients pour identifier vos attentes en termes de service
+                    et mesurer votre degré de satisfaction&nbsp;;
+                </li>
+                <li>la gestion de vos demandes liées à l’exercice des droits notamment d’accès, de rectification, et
+                    d’opposition, dont vous bénéficiez en application de la règlementation sur les données personnelles&nbsp;;
+                </li>
+                <li>la gestion éventuellement d’alertes ou d’informations utiles telles que des alertes météo;</li>
+                <li>d’établir des analyses ou des statistiques pour répondre à des enquêtes ou demandes menées par des
+                    organismes d’intérêts publics, ou des administrations, ou autorités administratives ou judiciaires&nbsp;;
+                </li>
+                <li>la réalisation des opérations permettant de tracer et administrer les preuves que Carrefour Location
+                    doit rapporter en application de ses obligations légales ou règlementaires ou pour des besoins liés
+                    à la gestion du contentieux (ex&nbsp;: les preuves nécessaires concernant l’exercice de vos droits,
+                    preuves relatives à vos commandes)
+                </li>
+                <li>la gestion des éventuels contentieux, notamment lié au recouvrement des sommes que vous pourriez
+                    nous devoir, et la gestion des incidents de paiement&nbsp;;
+                </li>
+                <li>de respecter des obligations légales ou règlementaires applicables à l’activité de Carrefour
+                    Location (ex: pour répondre à des demandes de l’administration fiscale).<br/>
+                    &nbsp;
+                </li>
+            </ul>
+
+            <p>Géolocalisation des véhicules&nbsp;: Certains véhicules loués peuvent être équipés de dispositifs de
+                géolocalisation pour lutter contre le vol des véhicules loués ainsi que pour des raisons de sécurité.
+                Les personnes habilitées de Carrefour Location ou son prestataire, peuvent ainsi être alertées de toutes
+                anomalies liées à l’utilisation du véhicule, par exemple choc important subi par le véhicule,
+                utilisation du véhicule dans des zones géographiques de location non autorisées. Ce dispositif peut
+                éventuellement permettre d’immobiliser le véhicule à distance, ou d’alerter les forces de police ou de
+                secours. Les informations collectées via ce dispositif peuvent être communiquées, aux autorités de
+                police ou judiciaires (notamment en cas de vol ou de non restitution), aux assureurs voire aux
+                constructeurs automobiles ou experts automobiles ou d’assurance.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Gestion du risque d’usage frauduleux de vos données ou des services auxquels vous avez accès via
+                Carrefour Location&nbsp;: en fonction des résultats des contrôles effectués, Carrefour Location pourra
+                prendre toutes mesures qu’il estime utiles pour la sécurisation de vos données et de ses systèmes
+                d’informations utilisés pour les besoins de l’utilisation de Carrefour Location, ainsi que pour la
+                défense de ses intérêts. Le cas échéant, ces mesures pourront conduire à suspendre votre accès à
+                Carrefour Location et à votre compte en ligne.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Nous vous précisons que Carrefour Location dispose également d’un fichier des personnes dites à «&nbsp;risque&nbsp;»
+                c'est-à-dire des personnes pour lesquelles il a été constaté (i) des incidents de paiements ayant donné
+                lieu à contentieux, ou (ii) des accidents ou des dommages répétés imputables à la personne inscrite au
+                contrat, ou (iii) des accidents ou dommages causés volontairement, ou (iv) une utilisation d’un véhicule
+                sans respecter les conditions générales du contrat de location. Dans ce cas, Carrefour Location se
+                réserve la possibilité de ne pas louer de véhicules aux personnes inscrites dans ce fichier.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Transmission par Carrefour Location, des coordonnées du titulaire du contrat de location ou du Conducteur
+                en cas d’infraction au Code la Route&nbsp;: Carrefour Location désignera aux autorités conformément aux
+                dispositions des articles L 121-1 et L 121 -3 et L 121-6 du Code de la Route, le client ou le conducteur
+                pour toute infraction au Code de la Route commise au cours de la période de mise à disposition du
+                véhicule. Pour rappel le Client est seul responsable du paiement de l’amende. Carrefour Location
+                transmettra ainsi, les nom, prénom, date et lieu de naissance, adresse, numéro du permis de</p>
+
+            <p>conduire et date et autorité de délivrance, ainsi que le cas échéant la copie du contrat de location ou
+                tout autre élément établissant la location ou mise à disposition du véhicule au profit du client ou du
+                conducteur désigné.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Vos données pourront également être utilisées pour réaliser des opérations relatives à la prospection
+                commerciale, ou des études destinées à améliorer la connaissance client et les services que peut
+                proposer Carrefour Location à ses clients. Vos données sont ainsi susceptibles d’être utilisées, dans le
+                respect des autorisations requises éventuellement que vous nous aurez consenties&nbsp;:</p>
+
+            <ul>
+                <li>pour vous envoyer des messages de promotion ou des publicités personnalisés ou non, par voie postale
+                    ou électronique y compris par notifications mobiles, selon votre profil,
+                </li>
+                <li>pour analyser votre utilisation des services (notamment votre navigation en ligne et vos réactions
+                    aux emails), afin que nous puissions mieux vous connaître, apprécier l’intérêt que représente les
+                    Services proposés ainsi que les messages que nous vous adressons et vous proposer des offres,
+                    contenus et des services adaptés à votre profil&nbsp;; ces analyses seront effectuées dans le
+                    respect des autorisations que vous nous aurez éventuellement consenties, notamment en cas
+                    d’utilisation de cookies ou autres traceurs.
+                </li>
+            </ul>
+
+            <p>&nbsp;</p>
+
+            <p>Pour les opérations de prospection commerciale liée au profilage et qui reposent sur le consentement de
+                la personne concernée par le traitement, celle-ci peut retirer à tout moment son consentement étant
+                entendu que cela ne remettra pas en cause la licéité du traitement mis en œuvre avant cette
+                révocation.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Vos données sont susceptibles d’être utilisées pour la réalisation d’opérations techniques liées aux
+                traitements de vos données personnelles, pour les besoins des finalités énoncées aux présentes. Cela
+                inclut :</p>
+
+            <ul>
+                <li>les opérations techniques liées au redressement d’adresses&nbsp;;</li>
+                <li>l’attribution d’un identifiant numérique lié à vos données, afin que nous puissions interagir avec
+                    vous via différents supports de communication numérique (sites internet et applications mobiles,
+                    réseaux sociaux) y compris pour vous adresser des publicités ciblées,
+                </li>
+                <li>les opérations techniques, organisationnelles ou de cybersécurité liées à la détection d’anomalie et
+                    à la sécurisation de vos données ainsi que des systèmes d’information de Carrefour Location à partir
+                    desquels vos données sont traitées.
+                </li>
+            </ul>
+
+            <p>&nbsp;</p>
+
+            <p>Vos données peuvent également faire l’objet d’échanges entre les différentes entités du groupe Carrefour
+                pour les finalités ci-après définies.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Les données collectées dans le cadre de Carrefour Location des services accessibles via Carrefour
+                Location pourront faire l’objet d’un traitement mutualisé, avec d’autres données vous concernant
+                collectées via les services proposés par les autres entités du groupe Carrefour ou le cas échéant leurs
+                partenaires. Ces données incluent&nbsp;:</p>
+
+            <ul>
+                <li>vos données d’identification, vos données de contacts y compris électroniques&nbsp;;</li>
+                <li>vos données d’achats, les avis que vous émettez&nbsp;;</li>
+                <li>vos profils clients, vos centres d’intérêts&nbsp;;</li>
+                <li>les données de navigation sur les sites et applications mobiles du groupe Carrefour ou des sites et
+                    applications édités par des entités tierces au groupe Carrefour (ex&nbsp;: sites visités, pages
+                    vues, bannières publicitaires adressées et/ou cliquées), ceci grâce à la technologie des cookies ou
+                    autres traceurs déposés par Carrefour ou par des tiers, et ce dans le respect des autorisations que
+                    vous aurez éventuellement consenties&nbsp;;
+                </li>
+            </ul>
+
+            <p>&nbsp;</p>
+
+            <p>Le recours à la mutualisation et à la combinaison de vos données poursuit des finalités bien définies, à
+                savoir&nbsp;:</p>
+
+            <ul>
+                <li>vous faciliter l’accès aux services que vous avez souscrits auprès des différentes entités du groupe
+                    Carrefour, par exemple vous éviter d’avoir à saisir, lors de chaque nouvelle création de compte sur
+                    un site Carrefour, vos noms, prénoms, adresse e-mail ou autres données communes, ou pour vous
+                    permettre de naviguer d’un site Carrefour à un autre sans avoir besoin de re saisir vos loggins et
+                    mot de passe. Ces services pourront faire l’objet de conditions spécifiques soumises à votre
+                    acceptation, au fur et à mesure qu’ils vous seront proposés&nbsp;;
+                </li>
+                <li>permettre au service client du groupe Carrefour de disposer d’un historique de vos échanges avec les
+                    différentes entités françaises du groupe Carrefour, pour pouvoir mieux vous répondre&nbsp;;
+                </li>
+                <li>nous permettre de mieux vous connaître dans votre relation avec l’écosystème des services et les
+                    différentes entités du groupe Carrefour, à travers la réalisation d’études et d’analyses visant à
+                    mieux comprendre vos attentes en termes de services, de produits, comprendre les évolutions et
+                    tendances de consommation et nous permettre d’adapter l’offre de nos produits et services dans nos
+                    magasins et accessibles via les sites internet et applications mobiles de Carrefour&nbsp;;
+                </li>
+                <li>nous permettre de mieux vous connaître dans votre relation avec les différentes entités du groupe
+                    Carrefour, analyser et construire votre profil, afin de vous adresser des contenus, des offres et
+                    publicités personnalisées.
+                </li>
+            </ul>
+
+            <p>&nbsp;</p>
+
+            <p><strong>10.3 Pourquoi les traitements de vos données à caractère personnel ont-ils lieu&nbsp;?</strong>
+            </p>
+
+            <ul>
+                <li>Vos données pourront faire l'objet d'un traitement pour l'une ou plusieurs des raisons suivantes :
+                </li>
+                <li>parce que cela est nécessaire pour fournir les services de Carrefour Location.</li>
+                <li>dans le cadre de l'accord que vous aurez éventuellement formulé, par exemple pour nous permettre de
+                    communiquer auprès de vous sur nos offres et produits ou celles de partenaires;
+                </li>
+                <li>dans le respect des intérêts, libertés et droits fondamentaux des personnes inscrites aux services
+                    Carrefour Location parce que cela est nécessaire pour nous permettre à nous ou aux entités du groupe
+                    Carrefour ou nos partenaires de poursuivre nos intérêts légitimes tels que fidéliser notre
+                    clientèle, gérer de manière optimale notre relation avec nos clients, mieux les connaître et
+                    promouvoir auprès d'eux nos produits et services ou encore lutter contre la fraude et assurer notre
+                    défense en cas de contentieux.
+                </li>
+            </ul>
+
+            <p>&nbsp;</p>
+
+            <p><strong>10.4 Quelles données collectons-nous&nbsp;?</strong></p>
+
+            <p>Les données traitées dans le cadre de Carrefour Location sont notamment des données:&nbsp;</p>
+
+            <ul>
+                <li>liées à votre inscription : données figurant sur le formulaire de souscription du contrat de
+                    location telles que vos nom, prénom, date de naissance, coordonnées, et numéro(s) de carte(s) de
+                    fidélité Carrefour (si celui-ci vous est demandé), le type de véhicule loué et toutes les
+                    informations se rapportant à la location du véhicule ou des autres services souscrits auprès de
+                    Carrefour Location,
+                </li>
+                <li>recueillies lors de la prise et de la restitution du véhicule,</li>
+                <li>liées à l’utilisation des services de Carrefour Location telles que vos réservations de véhicules ou
+                    l’utilisation des autres services proposés via Carrefour Location.
+                </li>
+                <li>permettant de vous identifier et de vous authentifier (logs de connexion, adresse IP), votre
+                    parcours de navigation sur le site, les dates et horaires de consultation du site, données de
+                    localisation&nbsp;;
+                </li>
+                <li>relatives aux personnes que vous aurez désignées comme pouvant conduire le véhicule loué,</li>
+                <li>(le cas échéant si cela est proposé par Carrefour Location) celles issues de l’utilisation de votre
+                    carte Carrefour ou de ses identifiants pour accéder à ou utiliser des services en ligne proposés par
+                    Carrefour Location, telles que données d’identification, coordonnées, données de localisation,
+                    informations relatives à la navigation ou aux publicités qui vous sont adressées&nbsp;;
+                </li>
+                <li>des sites et applications mobiles édités par des entités tierces au groupe Carrefour: informations
+                    relatives à la navigation ou aux publicités qui vous sont adressées&nbsp;;
+                </li>
+                <li>des réseaux sociaux de type facebook, linkedin, twitter&nbsp;; En effet des échanges</li>
+                <li>de données peuvent intervenir entre Carrefour Location et les réseaux sociaux, lorsque par exemple
+                    vous êtes connectés au réseau social facebook sur votre ordinateur et vous consultez une page du
+                    site de Carrefour Location. De même si vous cliquez sur le bouton twitter d’une page du site
+                    Carrefour Location, twitter collectera cette information. Si vous ne souhaitez pas de tels échanges,
+                    nous vous recommandons de vous déconnecter des réseaux sociaux avant de consulter le site ou
+                    l’application Carrefour.
+                </li>
+                <li>Des données vous concernant peuvent éventuellement nous être transmises par des tiers, telles que
+                    votre adresse postale ou électronique, des données relatives à votre profil, qui intègreront nos
+                    bases de données. Ces tiers ont collectés loyalement vos données et obtenu tout consentement requis
+                    avant toute transmission à Carrefour Location.
+                </li>
+                <li>Nous pouvons éventuellement disposer de données issues de l’open Data.</li>
+            </ul>
+
+            <p>&nbsp;</p>
+
+            <p>A l’exception des données issues de l’open data, les autres données ne sont pas accessibles au
+                public.</p>
+
+            <p>Les données peuvent être directement collectées auprès de vous-même ou via l’utilisation des services
+                Carrefour Location ou encore être issues des autres entités du groupe Carrefour ou éventuellement de nos
+                partenaires ou de tiers.</p>
+
+            <p>Les données collectées sont indispensables pour permettre à Carrefour Location, à leurs prestataires
+                et/ou partenaires de fournir les services des services de Carrefour Location ou proposés via Carrefour
+                Location, pour nous permettre de mieux vous connaître et interagir avec vous, proposer une relation
+                facilitée avec l’écosystème du groupe Carrefour, ou pour vous adresser, nous ou nos partenaires, des
+                contenus adaptés à votre profil et à vos centres d’intérêt.</p>
+
+            <p>&nbsp;</p>
+
+            <p><strong>10.5 Qui sera susceptible d’accéder à vos données&nbsp;?</strong></p>
+
+            <p>Pour atteindre les finalités décrites ci-dessus et dans les limites nécessaires à la poursuite de ces
+                finalités, vos données pourront être transmises à tout ou partie des destinataires suivants&nbsp;:</p>
+
+            <ul>
+                <li>Les Magasins qui proposent le service Carrefour Location,</li>
+                <li>personnes habilitées des services concernés au sein des sociétés du Groupe Carrefour (ex: services
+                    en charge du marketing, des études et analyses, des panels de consommateurs, du service clients, du
+                    contentieux, des affaires comptables et fiscales ou de l’informatique et de la sécurité des systèmes
+                    d’informations)&nbsp;;
+                </li>
+                <li>les partenaires de Carrefour Location pour les besoins de l’exécution des services,</li>
+                <li>la régie publicitaire Carrefour et l’agence média Carrefour (Digital Média</li>
+                <li>Shopper)&nbsp;;</li>
+                <li>l’entité juridique du groupe Carrefour qui gère de manière centralisée la base client;</li>
+                <li>le programme de fidélité,</li>
+                <li>aux prestataires de paiement et prestataires de recouvrement des sommes que vous pourriez
+                    éventuellement devoir,
+                </li>
+                <li>les prestataires et sous-traitants des sociétés du groupe Carrefour (ex: prestataires informatiques,
+                    prestataires intervenant dans le secteur de la publicité)&nbsp;;
+                </li>
+                <li>les annonceurs ou marques partenaires, mais dans ce cas ces derniers n’ont pas accès ni directement
+                    ni indirectement aux données vous concernant et seules des données liées à votre profil sans qu’il
+                    soit possible de vous identifier directement ou indirectement, peuvent être utilisées pour ces
+                    annonceurs
+                </li>
+                <li>les sociétés qui gèrent les centres commerciaux dans lesquels sont présents des magasins Carrefour&nbsp;;</li>
+                <li>les autorités administratives ou judiciaires le cas échéant dans le cadre du respect de nos
+                    obligations légales ou pour nous permettre d’assurer la défense de nos droits et intérêts.
+                </li>
+                <li>les assureurs,</li>
+                <li>les experts automobiles.</li>
+            </ul>
+
+            <p>&nbsp;</p>
+
+            <p><strong>10.6 Quelle est la limitation de la durée de conservation de vos données&nbsp;?</strong></p>
+
+            <p>Les données collectées vous concernant seront conservées pour la durée nécessaire à l’accomplissement des
+                finalités ci – dessus, augmentée du délai de la prescription légale.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Ainsi, à titre principal, vos données de compte (inscription) seront conservées pendant toute la durée de
+                votre adhésion. Elles pourront ensuite être conservées et traitées pendant 3 ans suivant le dernier
+                contact de votre part, pour nous permettre de vous adresser des sollicitations commerciales.</p>
+
+            <p>Les données qui vous concernent sont susceptibles d’être conservées plus longtemps au titre d’obligations
+                légales spécifiques ou au regard des délais de prescription légale applicables. A titre d’exemple, les
+                données peuvent être conservées pendant&nbsp;:</p>
+
+            <ul>
+                <li>6 ans pour les documents fiscaux&nbsp;;</li>
+                <li>10 ans pour les pièces comptables&nbsp;;</li>
+                <li>toute la durée des contentieux et jusqu’à épuisement des voies de recours.</li>
+            </ul>
+
+            <p>&nbsp;</p>
+
+            <p>Les informations relatives à votre inscription dans le fichier des clients à risque, peuvent être
+                conservées &nbsp;pendant 3 ans à compter de la date de survenance pour les actes et</p>
+
+            <p>faits entrants dans les catégories suivantes&nbsp;: client avec lequel il y a eu un incident de paiement
+                ayant donné lieu à un contentieux, accidents ou dommage répétés imputables au conducteur ou à la
+                personne inscrite au contrat, accidents ou dommages causés volontairement. Le délai est porté à 5 ans
+                pour les actes entrant dans la catégorie suivante&nbsp;: utilisation du véhicule sans respecter les
+                conditions générales du contrat de location).</p>
+
+            <p>&nbsp;</p>
+
+            <p>Enfin, en cas d'exercice de leurs droits par les personnes concernées, les données relatives aux pièces
+                d'identité peuvent être conservées pendant les délais de prescription légale applicables, soit pendant
+                une période maximale de 3 ans.</p>
+
+            <p>&nbsp;</p>
+
+            <p><strong>10.7 Comment vos données sont-elles sécurisées&nbsp;?</strong></p>
+
+            <p>Les sociétés du Groupe Carrefour prennent en compte, la nature des données personnelles et les risques
+                que présentent les traitements, pour mettre en place les mesures techniques, physiques et
+                organisationnelles appropriées pour préserver la sécurité et la confidentialité des données personnelles
+                et empêcher qu’elles ne soient déformées, endommagées ou que des tiers non autorisés y aient accès.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Les sociétés du Groupe Carrefour choisissent des sous-traitants ou des prestataires qui présentent des
+                garanties en terme de qualité, de sécurité, de fiabilité et de ressources pour assurer la mise en œuvre
+                de mesures techniques et organisationnelles y compris en matière de sécurité des traitements. Les
+                sous-traitants et les prestataires s’engagent à respecter des niveaux de confidentialité au moins
+                identiques à ceux des sociétés du Groupe Carrefour.<br/>
+                &nbsp;</p>
+
+            <p><strong>10.8 Vos données sont-elles traitées en dehors de l’Union Européenne&nbsp;?</strong></p>
+
+            <p>Les différentes catégories de données collectées et traitées dans le cadre des services Carrefour
+                Location peuvent être transmises à des sociétés prestataires situées dans des pays hors Union Européenne
+                tels que le Maroc, voire dans le cadre de prestations informatiques ou de l’exploitation de données en
+                lien avec les réseaux sociaux.</p>
+
+            <p>Pour sécuriser les transferts hors de l’Union européenne, les sociétés du Groupe Carrefour signent avec
+                Carrefour par exemple soit des clauses types définies par la Commission européenne afin d’encadrer les
+                flux, soit sont soumis à des règles internes contraignantes par les autorités qui contrôlent la
+                protection des données personnelles, ou sont situés dans un pays disposant d’une législation offrant une
+                protection adéquate.&nbsp;<br/>
+                &nbsp;</p>
+
+            <p><strong>10. 9 Quels sont vos droits&nbsp;?</strong></p>
+
+            <p>Conformément à la règlementation sur la protection des données à caractère personnel, vous bénéficiez
+                d’un droit à l’information. Vous bénéficiez également du d’accès, de rectification, d’effacement (sauf
+                si elles sont nécessaires à l’exécution de notre contrat, ou qu’elles nous sont nécessaires pour
+                respecter nos obligations légales ou constater ou exercer nos droits) lié aux données qui vous
+                concernent, ainsi que du droit de définir des directives relatives au sort de vos données après votre
+                décès. Il est ici précisé qu’au titre du droit d’accès, Carrefour pourra demander le paiement de frais
+                raisonnables basés sur les coûts administratifs pour toute copie supplémentaire des données à celle qui
+                vous sera communiquée.</p>
+
+            <p><br/>
+                Vous disposez également d’un droit d’obtenir la limitation d’un traitement et d’un droit à la
+                portabilité des données que vous avez pu fournir, qui trouveront à s’appliquer dans certains cas. Par
+                ailleurs, vous pouvez demander à exercer votre droit d’opposition pour motif pour des raisons tenant à
+                votre situation particulière, à un traitement de données personnelles vous concernant lorsque le
+                traitement est fondé&nbsp;sur l’intérêt légitime du responsable de traitement y compris le profilage. En
+                cas d’exercice d’un tel droit d’opposition, Carrefour Location cessera le traitement sauf lorsqu’il
+                existe des motifs légitimes et impérieux pour le traitement qui prévalent sur les intérêts et droits et
+                les libertés de la personne concernée ou pour la constatation, l’exercice ou la défense d’un droit en
+                justice. Vous pouvez également vous opposer pour tout traitement lié à la prospection (y compris le
+                profilage lié à une telle prospection), ou retirer votre consentement à tout moment, pour les cas où
+                celui-ci vous aurait été demandé (le retrait de votre consentement sera sans incidence sur la licéité du
+                traitement réalisé avant le retrait du consentement)</p>
+
+            <p>&nbsp;</p>
+
+            <p>Carrefour Location souhaite vous informer que le non renseignement ou la modification de vos données sont
+                susceptibles d’avoir des conséquences dans le traitement de certaines demandes dans le cadre de
+                l’exécution des services réservés ou commandés et que vos demandes au titre de l’exercice des droits
+                sera conservées à des fins de suivi&nbsp;</p>
+
+            <p>&nbsp;</p>
+
+            <p><strong>Pour exercer vos droits, </strong>Carrefour Service clients/ Droits sur les Données personnelles,
+                35 rue pierre et Dominique Ponchardier Espace Fauriel CS 60337 42015 Saint Etienne Cedex 2, ou de le
+                contacter par email&nbsp;: &nbsp;droitsdespersonnes@serviceclients-carrefour.com. &nbsp;en nous
+                indiquant vos nom, prénom, e-mail adresse et si possible votre référence client. Conformément à la
+                réglementation en vigueur, votre demande doit être signée et accompagnée de la photocopie d’un titre
+                d’identité portant votre signature et préciser l’adresse à laquelle doit vous parvenir la réponse. Une
+                réponse vous sera alors adressée dans les meilleurs délais.</p>
+
+            <p>&nbsp;</p>
+
+            <p>Nous vous informons par ailleurs de l’existence de la liste d'opposition au démarchage téléphonique «&nbsp;Bloctel
+                », gérée par Opposetel, sur laquelle vous pouvez vous inscrire gratuitement ici : <a
+                        contenteditable="false" href="https://conso.bloctel.fr/" is="qowt-hyperlink" target="_blank">https://conso.bloctel.fr/</a>.
+            </p>
+
+            <p>Dans l’hypothèse où nous ne parviendrions pas à répondre à vos demandes d’une manière qui vous
+                satisfasse, vous pouvez également introduire une réclamation auprès d’une autorité de contrôle (en
+                France la CNIL 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07. Tél : 01 53 73 22 22).</p>
+
+            <p>Délégué à la Protection des Données Personnelles&nbsp;: Au sein du groupe Carrefour, les responsables du
+                traitement ont désigné un Délégué à la Protection des Données que vous pouvez contacter pour toutes
+                questions relatives au traitement de vos données personnelles&nbsp;: Carrefour - Délégué à la Protection
+                des données personnelles – 93 avenue de Paris – CS 15015 – 91&nbsp;342 Massy Cedex.</p>
+
+
+            <h2>11.CLAUSE ATTRIBUTIVE DE COMPETENCE<br/>
+            </h2>
+
+            <p>Les Conditions Générales de Location sont soumises au droit français.　</p>
+
+            <p>En cas de litiges le Client peut, tout d’abord, contacter le Service Client afin de rechercher une
+                solution amiable à l’adresse suivante&nbsp;: location.vehicules@serviceclients-carrefour.com</p>
+
+            <p>Si le Client n'est toujours pas satisfait, le Loueur précise que le Locataire peut faire appel au
+                médiateur de la consommation – conformément aux articles L.612-1 et suivants du code de la consommation
+                – en se connectant sur le site Internet <a contenteditable="false"
+                                                           href="https://urldefense.proofpoint.com/v2/url?u=http-3A__www.mediateur.fcd.fr&amp;d=DQMGaQ&amp;c=oYSInPoxeTs4m10ilnGu9Q&amp;r=WStXd-lVVr_74mi9h5cZpWuX8MxvBStk6kTF8ywG78A&amp;m=CUkXRirl6i67ukPiD0hB7PiU3hfFF5bcrXJkdJ-R-7k&amp;s=GvxPoSYOguSeE1oraMYcqPIxbuPGb2J3TyCI21jXMxg&amp;e="
+                                                           is="qowt-hyperlink" target="_blank">www.mediateur.fcd.fr</a>
+                ou par courrier à l’adresse postale suivante: Médiateur de la consommation, 12, rue Euler, 75008 Paris.　
+            </p>
+
+            <p>A défaut d'accord amiable entre les Parties via l'une de ces procédures volontaires, le litige sera
+                soumis aux tribunaux français.</p>
+
+        </section>
+    </div>
+
+{% endblock %}

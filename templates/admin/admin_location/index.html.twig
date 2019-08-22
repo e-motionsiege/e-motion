@@ -10,7 +10,9 @@
     {#    {% endif %}#}
     <section class="adminAddVehicle">
         <h1 style="text-align: center">Liste des locations</h1>
+        {% if activeLocations %}
         <div class="row" style="margin-top: 30px;">
+            <h3>Liste des locations actives</h3>
             <div class="scrollTable">
                 <table class="table table-hover">
                     <thead>
@@ -23,40 +25,30 @@
                         <th scope="col">Fin prévue</th>
                         <th scope="col">Retour du véhicule</th>
                         <th scope="col">Nombre de kilomètres effectués</th>
-                        <th scope="col">Location annulée</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% if locations is defined %}
-                        {% for location in locations %}
+
+                        {% for activeLocation in activeLocations %}
                             <tr>
-                                <td>{{ location.id }}</td>
-                                <td><a href="{{ path('admin_user_edit',{'id': location.user.id}) }}">{{ location.user.id }}</a></td>
-                                <td><a href="{{ path('admin_vehicle_edit',{'id': location.vehicle.id}) }}">{{ location.vehicle.id }}</a></td>
-                                <td><a href="{{ path('admin_offer_edit',{'id': location.offer.id}) }}">{{ location.offer.id }}</a></td>
-                                <td>{{ location.startAt|date('d/m/Y') }}</td>
-                                <td>{{ location.endAt|date('d/m/Y') }}</td>
-                                <td>{% if location.returnAt is not null %}{{ location.returnAt|date('d/m/Y') }}{% else %}N/A{% endif %}</td>
-                                <td>{{ location.returnKm }}</td>
-                                {% if location.isActive == true %}
-                                    <td>Non</td>
-                                {% else %}
-                                    <td>Oui</td>
-                                {% endif %}
-                                <td><a href="{{ path('admin_location_status',{'id': location.id}) }}">
-                                        <button type="button"
-                                                class="btn btn-primary">{% if location.isActive == true %}Annuler{% else %}Réactiver{% endif %}</button>
+                                <td>{{ activeLocation.id }}</td>
+                                <td><a href="{{ path('admin_user_edit',{'id': activeLocation.user.id}) }}">{{ activeLocation.user.id }}</a></td>
+                                <td><a href="{{ path('admin_vehicle_edit',{'id': activeLocation.vehicle.id}) }}">{{ activeLocation.vehicle.id }}</a></td>
+                                <td><a href="{{ path('admin_offer_edit',{'id': activeLocation.offer.id}) }}">{{ activeLocation.offer.id }}</a></td>
+                                <td>{{ activeLocation.startAt|date('d/m/Y') }}</td>
+                                <td>{{ activeLocation.endAt|date('d/m/Y') }}</td>
+                                <td>{% if activeLocation.returnAt is not null %}{{ activeLocation.returnAt|date('d/m/Y') }}{% else %}N/A{% endif %}</td>
+                                <td>{{ activeLocation.returnKm }}</td>
+                                <td><a href="{{ path('admin_location_status',{'id': activeLocation.id}) }}">
+                                        <button type="button" class="btn btn-primary">Annuler</button>
                                     </a>
-                                    <a href="{{ path('admin_location_edit',{'id': location.id}) }}">
+                                    <a href="{{ path('admin_location_edit',{'id': activeLocation.id}) }}">
                                         <button type="button" class="btn btn-warning">Modifier</button>
                                     </a>
-                                    <a href="{{ path('admin_location_delete',{'id': location.id}) }}">
-                                        <button type="button" class="btn btn-danger">Supprimer</button>
-                                    </a>
-                                    {% if location.returnAt is null %}
-                                        {% if location.endAt|date('d-m-Y') < now|date('d-m-Y') %}
-                                            <a href="{{ path('admin_location_send',{'id': location.id}) }}">
+                                    {% if activeLocation.returnAt is null %}
+                                        {% if activeLocation.endAt|date('d-m-Y') < now|date('d-m-Y') %}
+                                            <a href="{{ path('admin_location_send',{'id': activeLocation    .id}) }}">
                                                 <button type="button" class="btn btn-dark">Envoyer un mail</button>
                                             </a>
                                         {% endif %}
@@ -64,10 +56,60 @@
                                 </td>
                             </tr>
                         {% endfor %}
-                    {% endif %}
                     </tbody>
                 </table>
             </div>
         </div>
+        {% endif %}
+        {% if inactiveLocations %}
+            <div class="row" style="margin-top: 30px;">
+                <h3>Liste des locations inactives</h3>
+                <div class="scrollTable">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Utilisateur</th>
+                            <th scope="col">Véhicule</th>
+                            <th scope="col">Offre</th>
+                            <th scope="col">Début</th>
+                            <th scope="col">Fin prévue</th>
+                            <th scope="col">Retour du véhicule</th>
+                            <th scope="col">Nombre de kilomètres effectués</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for inactiveLocation in inactiveLocations %}
+                            <tr>
+                                <td>{{ inactiveLocation.id }}</td>
+                                <td><a href="{{ path('admin_user_edit',{'id': inactiveLocation.user.id}) }}">{{ inactiveLocation.user.id }}</a></td>
+                                <td><a href="{{ path('admin_vehicle_edit',{'id': inactiveLocation.vehicle.id}) }}">{{ inactiveLocation.vehicle.id }}</a></td>
+                                <td><a href="{{ path('admin_offer_edit',{'id': inactiveLocation.offer.id}) }}">{{ inactiveLocation.offer.id }}</a></td>
+                                <td>{{ inactiveLocation.startAt|date('d/m/Y') }}</td>
+                                <td>{{ inactiveLocation.endAt|date('d/m/Y') }}</td>
+                                <td>{% if inactiveLocation.returnAt is not null %}{{ inactiveLocation.returnAt|date('d/m/Y') }}{% else %}N/A{% endif %}</td>
+                                <td>{{ inactiveLocation.returnKm }}</td>
+                                <td><a href="{{ path('admin_location_status',{'id': inactiveLocation.id}) }}">
+                                        <button type="button" class="btn btn-primary">Réactiver</button>
+                                    </a>
+                                    <a href="{{ path('admin_location_edit',{'id': inactiveLocation.id}) }}">
+                                        <button type="button" class="btn btn-warning">Modifier</button>
+                                    </a>
+                                    {% if inactiveLocation.returnAt is null %}
+                                        {% if inactiveLocation.endAt|date('d-m-Y') < now|date('d-m-Y') %}
+                                            <a href="{{ path('admin_location_send',{'id': inactiveLocation    .id}) }}">
+                                                <button type="button" class="btn btn-dark">Envoyer un mail</button>
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endif %}
     </section>
 {% endblock %}

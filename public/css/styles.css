@@ -1,3 +1,18 @@
+body {
+    background: #E9EDEE;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.home-section {
+    background-image: url("../images/background-cars.jpg");
+    background-size: cover;
+}
+
+h1 {
+    font-weight: bold;
+    color: #7fba26;
+}
+
 button, .button {
     background-color: #ff9505;
     color: #ffffff;
@@ -5,6 +20,10 @@ button, .button {
     text-transform: uppercase;
     margin-top: 10px;
     border-radius: 5px;
+}
+
+button, .button:hover {
+    background-color: #e08100;
 }
 
 .button:hover {
@@ -43,6 +62,42 @@ a:hover {
     height: 35px;
 }
 
+.logo-card {
+    height: 200px;
+}
+
+.card-style {
+    height: 385px;
+}
+
+.card-style:hover {
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.2);
+}
+
+.t-over {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+.copyright{
+    color: #ff9505 !important;
+}
+
+main{
+    margin-bottom: 56px;
+}
+
 #js-event-search-submit{
     margin-top: 20%;
 }
@@ -50,4 +105,16 @@ a:hover {
 .line {
     display: flex;
     justify-content: space-between;
+}
+.admin-btn {
+    background: white;
+}
+
+.nav-link:hover {
+    color: #7fba26 !important;
+}
+
+.scrollTable {
+    background: white;
+    margin-top: 15px;
 }
