@@ -62,7 +62,6 @@ a:hover {
     height: 35px;
 }
 
-/* <<<<<<< stylizing-home */
 .logo-card {
     height: 200px;
 }
@@ -79,7 +78,7 @@ a:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-/* ======= */
+}
 .footer{
     position: absolute;
     bottom: 0;
@@ -97,13 +96,11 @@ html{
 
 main{
     margin-bottom: 56px;
-/* >>>>>>> develop */
 }
 
 #js-event-search-submit{
     margin-top: 20%;
 }
-/* <<<<<<< stylizing-home */
 
 .admin-btn {
     background: white;
@@ -117,5 +114,3 @@ main{
     background: white;
     margin-top: 15px;
 }
-=======
-/* >>>>>>> develop */
