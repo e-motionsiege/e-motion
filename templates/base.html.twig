@@ -6,8 +6,7 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css') }}">
-
-
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
         <link rel="stylesheet" href="{{ asset('css/inputfile.css') }}">
@@ -26,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('home') }}">Home</a>
+                    <a class="nav-link" href="{{ path('home') }}">Véhicules à louer</a>
                 </li>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     {% if is_granted('ROLE_ADMIN') %}
@@ -39,7 +38,7 @@
                         </li>
                         {% endif %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('user_profile') }}">Mon Profile</a>
+                            <a class="nav-link" href="{{ path('user_profile') }}">Mon profil</a>
                         </li>
                 {% else %}
                     <li class="nav-item">
