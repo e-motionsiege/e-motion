@@ -39,7 +39,7 @@ class VehicleController extends AbstractController
         ]);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            if (($location->getStartAt() < $now) || ($location->getEndtAt() < $location->getStartAt())) {
+            if (($location->getStartAt() < $now) || ($location->getEndAt() < $location->getStartAt())) {
                 $this->addFlash('danger', "Votre date de début doit être à partir d'aujourd'hui");
                 return $this->redirectToRoute('show_vehicle',array('id'=>$id));
             } else {
@@ -68,7 +68,7 @@ class VehicleController extends AbstractController
                             $entityManager->persist($this->getUser());
                             $entityManager->flush();
                             $this->addFlash('success', 'Votre vehicule a été loué !');
-                            return $this->redirectToRoute('user_location');
+                            return $this->redirectToRoute('show_vehicle',array('id'=>$id));
                         }
                         else {
                             $this->addFlash('danger', "Ce vehicule n'est pas disponible du ".$userVehicle->getStartAt()."au".$userVehicle->getEndAt());
