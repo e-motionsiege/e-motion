@@ -30,60 +30,56 @@ class VehicleController extends AbstractController
         ]);
 
         $location = new Location();
-        if ($vehicle->getType() == 'voiture'){
+        if ($vehicle->getType() == 'voiture') {
             $form = $this->createForm(UserLocationTypeVoiture::class, $location);
-        }elseif ($vehicle->getType() == 'scooter'){
+        } elseif ($vehicle->getType() == 'scooter') {
             $form = $this->createForm(UserLocationTypeScooter::class, $location);
         }
         $form->handleRequest($request);
         $now = new \DateTime();
 
         $offer = $em->getRepository(Offer::class)->findBy([
-           'type' => $vehicle->getType(),
+            'type' => $vehicle->getType(),
             'isActive' => true
         ]);
 
         if ($form->isSubmitted() && $form->isValid()) {
-                $startAt = $location->getStartAt()->format('Y-m-d');
-                $endAt = $location->getEndAt()->format('Y-m-d');
-                $start = strtotime($startAt);
-                $end = strtotime($endAt);
-                $diffStartEnd = $end - $start;
-                $totalDay = (int)round($diffStartEnd / (60 * 60 * 24));
+            $startAt = $location->getStartAt()->format('Y-m-d');
+            $endAt = $location->getEndAt()->format('Y-m-d');
+            $start = strtotime($startAt);
+            $end = strtotime($endAt);
+            $diffStartEnd = $end - $start;
+            $totalDay = (int)round($diffStartEnd / (60 * 60 * 24));
 
-                if($totalDay > $location->getOffer()->getDuration()) {
-                    $this->addFlash('danger', "La durée maximale de cette offre est de ".$location->getOffer()->getDuration()." jours");
-                    return $this->redirectToRoute('show_vehicle',array('id'=>$id));
-                }
+            if ($totalDay > $location->getOffer()->getDuration()) {
+                $this->addFlash('danger', "La durée maximale de cette offre est de " . $location->getOffer()->getDuration() . " jours");
+                return $this->redirectToRoute('show_vehicle', array('id' => $id));
+            }
 
-                $vehicleInLocation = $em->getRepository(Location::class)->findBy([
-                    'vehicle' => $vehicle
-                ]);
-                foreach ($vehicleInLocation as $userVehicle) {
-                    if(($location->getStartAt() >= $userVehicle->getStartAt()) || ($location->getStartAt() <= $userVehicle->getEndAt())) {
-                        if(($location->getEndAt() < $userVehicle->getStartAt()) || ($location->getEndAt() > $userVehicle->getEndAt())) {
-                            $location->setUser($this->getUser());
-                            $location->setVehicle($vehicle);
-                            $entityManager->persist($location);
-                            $this->getUser()->setRoles(['ROLE_PROPRIETAIRE','ROLE_USER']);
-                            $entityManager->persist($this->getUser());
-                            $entityManager->flush();
-                            $this->addFlash('success', 'Votre vehicule a été loué !');
-                            return $this->redirectToRoute('show_vehicle',array('id'=>$id));
-                        }
-                        else {
-                            $this->addFlash('danger', "Ce vehicule n'est pas disponible du ".$userVehicle->getStartAt()."au".$userVehicle->getEndAt());
-                            return $this->redirectToRoute('show_vehicle',array('id'=>$id));
-
-                        }
-                    }
-                    else {
-                        $this->addFlash('danger', "Ce vehicule n'est pas disponible du ".$userVehicle->getStartAt()."au".$userVehicle->getEndAt());
-                        return $this->redirectToRoute('show_vehicle',array('id'=>$id));
+            $vehicleInLocation = $em->getRepository(Location::class)->findBy([
+                'vehicle' => $vehicle
+            ]);
+            foreach ($vehicleInLocation as $userVehicle) {
+                if (($location->getStartAt() >= $userVehicle->getStartAt()) || ($location->getStartAt() <= $userVehicle->getEndAt())) {
+                    if (($location->getEndAt() < $userVehicle->getStartAt()) || ($location->getEndAt() > $userVehicle->getEndAt())) {
+                        $location->setUser($this->getUser());
+                        $location->setVehicle($vehicle);
+                        $entityManager->persist($location);
+                        $this->getUser()->setRoles(['ROLE_PROPRIETAIRE', 'ROLE_USER']);
+                        $entityManager->persist($this->getUser());
+                        $entityManager->flush();
+                        $this->addFlash('success', 'Votre vehicule a été loué !');
+                        return $this->redirectToRoute('show_vehicle', array('id' => $id));
+                    } else {
+                        $this->addFlash('danger', "Ce vehicule n'est pas disponible du " . $userVehicle->getStartAt() . "au" . $userVehicle->getEndAt());
+                        return $this->redirectToRoute('show_vehicle', array('id' => $id));
 
                     }
-                }
+                } else {
+                    $this->addFlash('danger', "Ce vehicule n'est pas disponible du " . $userVehicle->getStartAt() . "au" . $userVehicle->getEndAt());
+                    return $this->redirectToRoute('show_vehicle', array('id' => $id));
 
+                }
             }
         }
 
