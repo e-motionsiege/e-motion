@@ -7,7 +7,7 @@ use App\Entity\Offer;
 use App\Entity\PictureVehicle;
 use App\Entity\Vehicle;
 use App\Form\UserLocationTypeVoiture;
-use App\Form\UserLocationTypeScooter
+use App\Form\UserLocationTypeScooter;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
