@@ -14,7 +14,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+/**
+ * @Security("has_role('ROLE_ADMIN')")
+ */
 class AdminOfferController extends AbstractController
 {
     /**

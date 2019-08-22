@@ -4,8 +4,17 @@ width: 100% !important;
 
 .file-preview-image{
     width: 100% !important;
+    height: auto !important;
 }
 
 #spanInputFile{
     width: 100%;
+}
+
+.fileinput-upload{
+    display: none;
+}
+
+.fileinput-cancel{
+    display: none;
 }
