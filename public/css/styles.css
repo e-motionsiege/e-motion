@@ -6,9 +6,9 @@ body {
 .home-section {
     background-image: url(../images/background-cars.jpg);
     background-size: cover;
-    height: calc(100% - 61px);
-    position: absolute;
     width: 100%;
+    padding-bottom: 55px;
+    min-height: calc(100vh - 72px);
 }
 
 h1 {
@@ -95,10 +95,6 @@ html{
 
 .copyright{
     color: #ff9505 !important;
-}
-
-main{
-    margin-bottom: 56px;
 }
 
 #js-event-search-submit{
