@@ -4,8 +4,11 @@ body {
 }
 
 .home-section {
-    background-image: url("../images/background-cars.jpg");
+    background-image: url(../images/background-cars.jpg);
     background-size: cover;
+    height: calc(100% - 61px);
+    position: absolute;
+    width: 100%;
 }
 
 h1 {
@@ -46,7 +49,7 @@ section {
 }
 
 .mid-container {
-    max-width: 50%;
+    max-width: 60%;
     margin: auto;
 }
 .navbar-nav a {
@@ -117,4 +120,18 @@ main{
 .scrollTable {
     background: white;
     margin-top: 15px;
+}
+
+.location-form {
+    width: 340px;
+    margin: auto;
+}
+
+.bd-radius {
+    border-radius: 15px;
+}
+
+.owner-table {
+    background: white;
+    padding: 10px;
 }
