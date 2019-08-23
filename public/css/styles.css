@@ -112,6 +112,7 @@ html{
 .scrollTable {
     background: white;
     margin-top: 15px;
+    overflow-y: auto;
 }
 
 .location-form {
